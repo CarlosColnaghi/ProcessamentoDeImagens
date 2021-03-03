@@ -42,13 +42,12 @@ namespace Processamento_de_Imagens
                 for (int j = 0; j < imagem.Width; j++)
                 {
                     matriz[i][j] = imagem.GetPixel(i, j);
-                    Console.WriteLine(matriz[i][j]);
                 }
             }
             return matriz;
         }
 
-        public Bitmap binarizacao(int limiar)
+        public Bitmap getBinarizacao(int limiar)
         {
             Color[][] matriz = getMatriz();
             Bitmap imagem = new Bitmap(this.imagem);
@@ -85,6 +84,29 @@ namespace Processamento_de_Imagens
                 }
             }
             return histograma;
+        }
+
+        public Bitmap getFiltroMedia()
+        {
+            Color[][] matriz = getMatriz();
+            Bitmap imagem = new Bitmap(this.imagem);
+            for(int i = 1; i <= imagem.Height-2; i++)
+            {
+                for(int j = 1; j <= imagem.Width-2; j++)
+                {
+                    int soma = 0;
+                    for(int k = i-1; k <= i+1; k++)
+                    {
+                        for(int l = j-1; l <= j+1; l++)
+                        {
+                            soma += matriz[k][l].R;   
+                        }
+                    }
+                    int media = soma / 9;
+                    imagem.SetPixel(i, j, Color.FromArgb(255, media, media, media));
+                }
+            }
+            return imagem;
         }
 
     }
