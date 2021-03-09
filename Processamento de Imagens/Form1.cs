@@ -16,8 +16,12 @@ namespace Processamento_de_Imagens
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-             lstOperacoes.Items.Add("Binarização");
-             lstOperacoes.Items.Add("Média");
+            lstOperacoes.Items.Add(Operacoes.binarizacao);
+            lstOperacoes.Items.Add(Operacoes.filtroMedia);
+            lstOperacoes.SetSelected(0, true);
+
+            barLimiar.Value = barLimiar.Maximum / 2;
+            txtLimiar.Text = barLimiar.Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,8 +44,15 @@ namespace Processamento_de_Imagens
         private void button1_Click(object sender, EventArgs e)
         {
             Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
-            //picProcessada.Image = imagem.getBinarizacao(Int32.Parse(txtLimiar.Text));
-            picProcessada.Image = imagem.getFiltroMedia();
+            switch (lstOperacoes.SelectedItem)
+            {
+                case Operacoes.binarizacao:
+                    picProcessada.Image = imagem.getBinarizacao(Int32.Parse(txtLimiar.Text));
+                    break;
+                case Operacoes.filtroMedia:
+                    picProcessada.Image = imagem.getFiltroMedia();
+                    break;
+            }
             foreach (int valor in imagem.getHistograma())
             {
                 lstHistograma.Items.Add($"{lstHistograma.Items.Count} = {valor}");

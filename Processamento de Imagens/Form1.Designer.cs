@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.l = new System.Windows.Forms.Label();
             this.txtLargura = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.picOriginal = new System.Windows.Forms.PictureBox();
+            this.lstHistograma = new System.Windows.Forms.ListBox();
             this.lstOperacoes = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,7 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lstHistograma = new System.Windows.Forms.ListBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.barLimiar = new System.Windows.Forms.TrackBar();
@@ -57,26 +58,37 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.l);
             this.panel1.Controls.Add(this.txtLargura);
             this.panel1.Controls.Add(this.txtAltura);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.picOriginal);
+            this.panel1.Controls.Add(this.lstHistograma);
             this.panel1.Location = new System.Drawing.Point(9, 45);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(347, 539);
             this.panel1.TabIndex = 1;
             // 
+            // l
+            // 
+            this.l.AutoSize = true;
+            this.l.Location = new System.Drawing.Point(167, 371);
+            this.l.Name = "l";
+            this.l.Size = new System.Drawing.Size(14, 15);
+            this.l.TabIndex = 6;
+            this.l.Text = "X";
+            // 
             // txtLargura
             // 
-            this.txtLargura.Location = new System.Drawing.Point(19, 398);
+            this.txtLargura.Location = new System.Drawing.Point(61, 368);
             this.txtLargura.Name = "txtLargura";
             this.txtLargura.Size = new System.Drawing.Size(100, 23);
             this.txtLargura.TabIndex = 4;
             // 
             // txtAltura
             // 
-            this.txtAltura.Location = new System.Drawing.Point(19, 369);
+            this.txtAltura.Location = new System.Drawing.Point(187, 368);
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.Size = new System.Drawing.Size(100, 23);
             this.txtAltura.TabIndex = 4;
@@ -107,6 +119,15 @@
             this.picOriginal.TabIndex = 0;
             this.picOriginal.TabStop = false;
             // 
+            // lstHistograma
+            // 
+            this.lstHistograma.FormattingEnabled = true;
+            this.lstHistograma.ItemHeight = 15;
+            this.lstHistograma.Location = new System.Drawing.Point(19, 397);
+            this.lstHistograma.Name = "lstHistograma";
+            this.lstHistograma.Size = new System.Drawing.Size(308, 124);
+            this.lstHistograma.TabIndex = 5;
+            // 
             // lstOperacoes
             // 
             this.lstOperacoes.FormattingEnabled = true;
@@ -122,7 +143,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(359, 355);
+            this.button1.Location = new System.Drawing.Point(359, 430);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(308, 38);
             this.button1.TabIndex = 3;
@@ -138,7 +159,7 @@
             this.panel2.Location = new System.Drawing.Point(670, 45);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 436);
+            this.panel2.Size = new System.Drawing.Size(347, 539);
             this.panel2.TabIndex = 1;
             // 
             // button5
@@ -173,7 +194,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(359, 399);
+            this.button3.Location = new System.Drawing.Point(359, 474);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(308, 38);
             this.button3.TabIndex = 3;
@@ -216,15 +237,6 @@
             this.label3.Text = "Imagem B";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lstHistograma
-            // 
-            this.lstHistograma.FormattingEnabled = true;
-            this.lstHistograma.ItemHeight = 15;
-            this.lstHistograma.Location = new System.Drawing.Point(359, 455);
-            this.lstHistograma.Name = "lstHistograma";
-            this.lstHistograma.Size = new System.Drawing.Size(308, 94);
-            this.lstHistograma.TabIndex = 5;
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
@@ -245,16 +257,16 @@
             // 
             this.barLimiar.AutoSize = false;
             this.barLimiar.LargeChange = 1;
-            this.barLimiar.Location = new System.Drawing.Point(293, 603);
+            this.barLimiar.Location = new System.Drawing.Point(359, 377);
             this.barLimiar.Maximum = 255;
             this.barLimiar.Name = "barLimiar";
-            this.barLimiar.Size = new System.Drawing.Size(530, 45);
+            this.barLimiar.Size = new System.Drawing.Size(308, 45);
             this.barLimiar.TabIndex = 9;
             this.barLimiar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // txtLimiar
             // 
-            this.txtLimiar.Location = new System.Drawing.Point(506, 574);
+            this.txtLimiar.Location = new System.Drawing.Point(463, 354);
             this.txtLimiar.Name = "txtLimiar";
             this.txtLimiar.Size = new System.Drawing.Size(100, 23);
             this.txtLimiar.TabIndex = 10;
@@ -269,7 +281,6 @@
             this.Controls.Add(this.barLimiar);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.lstHistograma);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -313,5 +324,7 @@
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.TrackBar barLimiar;
         private System.Windows.Forms.TextBox txtLimiar;
+        private System.Windows.Forms.Label l;
+        private System.Windows.Forms.ListBox O;
     }
 }
