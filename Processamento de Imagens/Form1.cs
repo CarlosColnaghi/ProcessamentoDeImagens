@@ -32,30 +32,34 @@ namespace Processamento_de_Imagens
             {
                 picOriginal.Image = new Bitmap(openFileDialog.FileName);
             }
-            txtAltura.Text = picOriginal.Image.Height.ToString();
-            txtLargura.Text = picOriginal.Image.Width.ToString();
+            txtAlturaOriginal.Text = picOriginal.Image.Height.ToString();
+            txtLarguraOriginal.Text = picOriginal.Image.Width.ToString();
             Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
+            lstHistogramaOriginal.Items.Clear();
             foreach (int valor in imagem.getHistograma())
             {
-                lstHistograma.Items.Add($"{lstHistograma.Items.Count} = {valor}");
+                lstHistogramaOriginal.Items.Add($"{lstHistogramaOriginal.Items.Count} = {valor}");
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
+            Imagem imagemOriginal = new Imagem(new Bitmap(picOriginal.Image));
+            Bitmap imagemProcessada = null;
             switch (lstOperacoes.SelectedItem)
             {
                 case Operacoes.binarizacao:
-                    picProcessada.Image = imagem.getBinarizacao(Int32.Parse(txtLimiar.Text));
+                    imagemProcessada = imagemOriginal.getBinarizacao(Int32.Parse(txtLimiar.Text));
                     break;
                 case Operacoes.filtroMedia:
-                    picProcessada.Image = imagem.getFiltroMedia();
+                    imagemProcessada = imagemOriginal.getFiltroMedia();
                     break;
             }
-            foreach (int valor in imagem.getHistograma())
+            picProcessada.Image = imagemProcessada;
+            lstHistogramaProcessada.Items.Clear();
+            foreach (int valor in new Imagem(imagemProcessada).getHistograma())
             {
-                lstHistograma.Items.Add($"{lstHistograma.Items.Count} = {valor}");
+                lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
             }
         }
 

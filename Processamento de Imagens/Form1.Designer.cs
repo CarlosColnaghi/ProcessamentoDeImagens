@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.l = new System.Windows.Forms.Label();
-            this.txtLargura = new System.Windows.Forms.TextBox();
-            this.txtAltura = new System.Windows.Forms.TextBox();
+            this.txtLarguraOriginal = new System.Windows.Forms.TextBox();
+            this.txtAlturaOriginal = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.picOriginal = new System.Windows.Forms.PictureBox();
-            this.lstHistograma = new System.Windows.Forms.ListBox();
+            this.lstHistogramaOriginal = new System.Windows.Forms.ListBox();
             this.lstOperacoes = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,6 +48,10 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.barLimiar = new System.Windows.Forms.TrackBar();
             this.txtLimiar = new System.Windows.Forms.TextBox();
+            this.lstHistogramaProcessada = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLarguraProcessada = new System.Windows.Forms.TextBox();
+            this.txtAlturaProcessada = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,11 +63,11 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.l);
-            this.panel1.Controls.Add(this.txtLargura);
-            this.panel1.Controls.Add(this.txtAltura);
+            this.panel1.Controls.Add(this.txtLarguraOriginal);
+            this.panel1.Controls.Add(this.txtAlturaOriginal);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.picOriginal);
-            this.panel1.Controls.Add(this.lstHistograma);
+            this.panel1.Controls.Add(this.lstHistogramaOriginal);
             this.panel1.Location = new System.Drawing.Point(9, 45);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -73,25 +77,25 @@
             // l
             // 
             this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(167, 371);
+            this.l.Location = new System.Drawing.Point(166, 371);
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(14, 15);
             this.l.TabIndex = 6;
             this.l.Text = "X";
             // 
-            // txtLargura
+            // txtLarguraOriginal
             // 
-            this.txtLargura.Location = new System.Drawing.Point(61, 368);
-            this.txtLargura.Name = "txtLargura";
-            this.txtLargura.Size = new System.Drawing.Size(100, 23);
-            this.txtLargura.TabIndex = 4;
+            this.txtLarguraOriginal.Location = new System.Drawing.Point(60, 368);
+            this.txtLarguraOriginal.Name = "txtLarguraOriginal";
+            this.txtLarguraOriginal.Size = new System.Drawing.Size(100, 23);
+            this.txtLarguraOriginal.TabIndex = 4;
             // 
-            // txtAltura
+            // txtAlturaOriginal
             // 
-            this.txtAltura.Location = new System.Drawing.Point(187, 368);
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(100, 23);
-            this.txtAltura.TabIndex = 4;
+            this.txtAlturaOriginal.Location = new System.Drawing.Point(186, 368);
+            this.txtAlturaOriginal.Name = "txtAlturaOriginal";
+            this.txtAlturaOriginal.Size = new System.Drawing.Size(100, 23);
+            this.txtAlturaOriginal.TabIndex = 4;
             // 
             // button2
             // 
@@ -119,14 +123,14 @@
             this.picOriginal.TabIndex = 0;
             this.picOriginal.TabStop = false;
             // 
-            // lstHistograma
+            // lstHistogramaOriginal
             // 
-            this.lstHistograma.FormattingEnabled = true;
-            this.lstHistograma.ItemHeight = 15;
-            this.lstHistograma.Location = new System.Drawing.Point(19, 397);
-            this.lstHistograma.Name = "lstHistograma";
-            this.lstHistograma.Size = new System.Drawing.Size(308, 124);
-            this.lstHistograma.TabIndex = 5;
+            this.lstHistogramaOriginal.FormattingEnabled = true;
+            this.lstHistogramaOriginal.ItemHeight = 15;
+            this.lstHistogramaOriginal.Location = new System.Drawing.Point(19, 397);
+            this.lstHistogramaOriginal.Name = "lstHistogramaOriginal";
+            this.lstHistogramaOriginal.Size = new System.Drawing.Size(308, 124);
+            this.lstHistogramaOriginal.TabIndex = 5;
             // 
             // lstOperacoes
             // 
@@ -154,6 +158,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.txtLarguraProcessada);
+            this.panel2.Controls.Add(this.txtAlturaProcessada);
+            this.panel2.Controls.Add(this.lstHistogramaProcessada);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.picProcessada);
             this.panel2.Location = new System.Drawing.Point(670, 45);
@@ -271,6 +279,38 @@
             this.txtLimiar.Size = new System.Drawing.Size(100, 23);
             this.txtLimiar.TabIndex = 10;
             // 
+            // lstHistogramaProcessada
+            // 
+            this.lstHistogramaProcessada.FormattingEnabled = true;
+            this.lstHistogramaProcessada.ItemHeight = 15;
+            this.lstHistogramaProcessada.Location = new System.Drawing.Point(19, 397);
+            this.lstHistogramaProcessada.Name = "lstHistogramaProcessada";
+            this.lstHistogramaProcessada.Size = new System.Drawing.Size(308, 124);
+            this.lstHistogramaProcessada.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(166, 371);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "X";
+            // 
+            // txtLarguraProcessada
+            // 
+            this.txtLarguraProcessada.Location = new System.Drawing.Point(60, 368);
+            this.txtLarguraProcessada.Name = "txtLarguraProcessada";
+            this.txtLarguraProcessada.Size = new System.Drawing.Size(100, 23);
+            this.txtLarguraProcessada.TabIndex = 7;
+            // 
+            // txtAlturaProcessada
+            // 
+            this.txtAlturaProcessada.Location = new System.Drawing.Point(186, 368);
+            this.txtAlturaProcessada.Name = "txtAlturaProcessada";
+            this.txtAlturaProcessada.Size = new System.Drawing.Size(100, 23);
+            this.txtAlturaProcessada.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -296,6 +336,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProcessada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).EndInit();
             this.ResumeLayout(false);
@@ -317,14 +358,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtLargura;
-        private System.Windows.Forms.TextBox txtAltura;
-        private System.Windows.Forms.ListBox lstHistograma;
+        private System.Windows.Forms.TextBox txtLarguraOriginal;
+        private System.Windows.Forms.TextBox txtAlturaOriginal;
+        private System.Windows.Forms.ListBox lstHistogramaOriginal;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.TrackBar barLimiar;
         private System.Windows.Forms.TextBox txtLimiar;
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.ListBox O;
+        private System.Windows.Forms.ListBox lstHistogramaProcessada;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLarguraProcessada;
+        private System.Windows.Forms.TextBox txtAlturaProcessada;
     }
 }
