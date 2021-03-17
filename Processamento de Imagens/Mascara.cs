@@ -4,8 +4,17 @@ using System.Text;
 
 namespace Processamento_de_Imagens
 {
-    class Mascara
+    static class Mascara
     {
-
+        public static int[,] getLaplaciano()
+        {
+            int[,] mascara = new int[,]
+            {
+                {0, -1, 0},
+                {-1, 4, -1},
+                {0, -1, 0},
+            };
+            return mascara;
+        }
     }
 }

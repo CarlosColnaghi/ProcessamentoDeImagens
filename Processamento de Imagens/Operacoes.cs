@@ -8,6 +8,7 @@ namespace Processamento_de_Imagens
     {
         public const string
             binarizacao = "Binarização",
-            filtroMedia = "Filtro de Média";
+            filtroMedia = "Filtro de Média",
+            filtroRealce = "Filtro de Realce";
     }
 }

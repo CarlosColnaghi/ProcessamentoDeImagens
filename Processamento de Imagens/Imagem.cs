@@ -109,5 +109,40 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
+        public Bitmap processar(int[,] mascara)
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            for (int i = 1; i <= imagem.Height - 2; i++)
+            {
+                for (int j = 1; j <= imagem.Width - 2; j++)
+                {
+                    int soma = 0;
+                    for (int k = i - 1, m = 0; k <= i + 1; k++, m++)
+                    {
+                        for (int l = j - 1, n = 0; l <= j + 1; l++, n++)
+                        {
+                            
+                            soma += imagem.GetPixel(k, l).R * mascara[m, n];
+                            Console.WriteLine("${soma} ${k}, ${l} = ${m}, ${n}");
+                        }
+                    }
+                    if(soma < 0) 
+                    {
+                        soma = 0;
+                    }else if(soma > 255)
+                    {
+                        soma = 255;
+                    }
+                    imagem.SetPixel(i, j, Color.FromArgb(255, soma, soma, soma));
+                }
+            }
+            return imagem;
+        }
+
+        public Bitmap getFiltroRealce()
+        {
+            return processar(Mascara.getLaplaciano());
+        }
+
     }
 }

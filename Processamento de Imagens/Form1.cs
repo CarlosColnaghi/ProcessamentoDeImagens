@@ -18,6 +18,7 @@ namespace Processamento_de_Imagens
         {
             lstOperacoes.Items.Add(Operacoes.binarizacao);
             lstOperacoes.Items.Add(Operacoes.filtroMedia);
+            lstOperacoes.Items.Add(Operacoes.filtroRealce);
             lstOperacoes.SetSelected(0, true);
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -53,6 +54,9 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.filtroMedia:
                     imagemProcessada = imagemOriginal.getFiltroMedia();
+                    break;
+                case Operacoes.filtroRealce:
+                    imagemProcessada = imagemOriginal.getFiltroRealce();
                     break;
             }
             picProcessada.Image = imagemProcessada;
