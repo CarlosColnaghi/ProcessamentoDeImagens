@@ -38,9 +38,12 @@
             this.lstOperacoes = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLarguraProcessada = new System.Windows.Forms.TextBox();
+            this.txtAlturaProcessada = new System.Windows.Forms.TextBox();
+            this.lstHistogramaProcessada = new System.Windows.Forms.ListBox();
             this.button5 = new System.Windows.Forms.Button();
             this.picProcessada = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,10 +51,6 @@
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.barLimiar = new System.Windows.Forms.TrackBar();
             this.txtLimiar = new System.Windows.Forms.TextBox();
-            this.lstHistogramaProcessada = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtLarguraProcessada = new System.Windows.Forms.TextBox();
-            this.txtAlturaProcessada = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
             this.panel2.SuspendLayout();
@@ -85,17 +84,23 @@
             // 
             // txtLarguraOriginal
             // 
+            this.txtLarguraOriginal.BackColor = System.Drawing.Color.White;
             this.txtLarguraOriginal.Location = new System.Drawing.Point(60, 368);
             this.txtLarguraOriginal.Name = "txtLarguraOriginal";
+            this.txtLarguraOriginal.ReadOnly = true;
             this.txtLarguraOriginal.Size = new System.Drawing.Size(100, 23);
             this.txtLarguraOriginal.TabIndex = 4;
+            this.txtLarguraOriginal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtAlturaOriginal
             // 
+            this.txtAlturaOriginal.BackColor = System.Drawing.Color.White;
             this.txtAlturaOriginal.Location = new System.Drawing.Point(186, 368);
             this.txtAlturaOriginal.Name = "txtAlturaOriginal";
+            this.txtAlturaOriginal.ReadOnly = true;
             this.txtAlturaOriginal.Size = new System.Drawing.Size(100, 23);
             this.txtAlturaOriginal.TabIndex = 4;
+            this.txtAlturaOriginal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button2
             // 
@@ -170,6 +175,44 @@
             this.panel2.Size = new System.Drawing.Size(347, 539);
             this.panel2.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(166, 371);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 15);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "X";
+            // 
+            // txtLarguraProcessada
+            // 
+            this.txtLarguraProcessada.BackColor = System.Drawing.Color.White;
+            this.txtLarguraProcessada.Location = new System.Drawing.Point(60, 368);
+            this.txtLarguraProcessada.Name = "txtLarguraProcessada";
+            this.txtLarguraProcessada.ReadOnly = true;
+            this.txtLarguraProcessada.Size = new System.Drawing.Size(100, 23);
+            this.txtLarguraProcessada.TabIndex = 7;
+            this.txtLarguraProcessada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtAlturaProcessada
+            // 
+            this.txtAlturaProcessada.BackColor = System.Drawing.Color.White;
+            this.txtAlturaProcessada.Location = new System.Drawing.Point(186, 368);
+            this.txtAlturaProcessada.Name = "txtAlturaProcessada";
+            this.txtAlturaProcessada.ReadOnly = true;
+            this.txtAlturaProcessada.Size = new System.Drawing.Size(100, 23);
+            this.txtAlturaProcessada.TabIndex = 8;
+            this.txtAlturaProcessada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lstHistogramaProcessada
+            // 
+            this.lstHistogramaProcessada.FormattingEnabled = true;
+            this.lstHistogramaProcessada.ItemHeight = 15;
+            this.lstHistogramaProcessada.Location = new System.Drawing.Point(19, 397);
+            this.lstHistogramaProcessada.Name = "lstHistogramaProcessada";
+            this.lstHistogramaProcessada.Size = new System.Drawing.Size(308, 124);
+            this.lstHistogramaProcessada.TabIndex = 6;
+            // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.RoyalBlue;
@@ -183,6 +226,7 @@
             this.button5.TabIndex = 3;
             this.button5.Text = "Salvar";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // picProcessada
             // 
@@ -194,20 +238,6 @@
             this.picProcessada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProcessada.TabIndex = 0;
             this.picProcessada.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Firebrick;
-            this.button3.Enabled = false;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(359, 474);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(308, 38);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Reverter";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -279,38 +309,6 @@
             this.txtLimiar.Size = new System.Drawing.Size(100, 23);
             this.txtLimiar.TabIndex = 10;
             // 
-            // lstHistogramaProcessada
-            // 
-            this.lstHistogramaProcessada.FormattingEnabled = true;
-            this.lstHistogramaProcessada.ItemHeight = 15;
-            this.lstHistogramaProcessada.Location = new System.Drawing.Point(19, 397);
-            this.lstHistogramaProcessada.Name = "lstHistogramaProcessada";
-            this.lstHistogramaProcessada.Size = new System.Drawing.Size(308, 124);
-            this.lstHistogramaProcessada.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(166, 371);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "X";
-            // 
-            // txtLarguraProcessada
-            // 
-            this.txtLarguraProcessada.Location = new System.Drawing.Point(60, 368);
-            this.txtLarguraProcessada.Name = "txtLarguraProcessada";
-            this.txtLarguraProcessada.Size = new System.Drawing.Size(100, 23);
-            this.txtLarguraProcessada.TabIndex = 7;
-            // 
-            // txtAlturaProcessada
-            // 
-            this.txtAlturaProcessada.Location = new System.Drawing.Point(186, 368);
-            this.txtAlturaProcessada.Name = "txtAlturaProcessada";
-            this.txtAlturaProcessada.Size = new System.Drawing.Size(100, 23);
-            this.txtAlturaProcessada.TabIndex = 8;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -324,12 +322,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lstOperacoes);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -354,7 +353,6 @@
         private System.Windows.Forms.PictureBox picProcessada;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

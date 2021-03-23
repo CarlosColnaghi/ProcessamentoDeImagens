@@ -32,44 +32,53 @@ namespace Processamento_de_Imagens
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 picOriginal.Image = new Bitmap(openFileDialog.FileName);
-            }
-            txtAlturaOriginal.Text = picOriginal.Image.Height.ToString();
-            txtLarguraOriginal.Text = picOriginal.Image.Width.ToString();
-            Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
-            lstHistogramaOriginal.Items.Clear();
-            foreach (int valor in imagem.getHistograma())
-            {
-                lstHistogramaOriginal.Items.Add($"{lstHistogramaOriginal.Items.Count} = {valor}");
+                txtAlturaOriginal.Text = picOriginal.Image.Height.ToString();
+                txtLarguraOriginal.Text = picOriginal.Image.Width.ToString();
+                Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
+                lstHistogramaOriginal.Items.Clear();
+                foreach (int valor in imagem.getHistograma())
+                {
+                    lstHistogramaOriginal.Items.Add($"{lstHistogramaOriginal.Items.Count} = {valor}");
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Imagem imagemOriginal = new Imagem(new Bitmap(picOriginal.Image));
-            Bitmap imagemProcessada = null;
-            switch (lstOperacoes.SelectedItem)
+            if(picOriginal.Image != null)
             {
-                case Operacoes.binarizacao:
-                    imagemProcessada = imagemOriginal.getBinarizacao(Int32.Parse(txtLimiar.Text));
-                    break;
-                case Operacoes.filtroMedia:
-                    imagemProcessada = imagemOriginal.getFiltroMedia();
-                    break;
-                case Operacoes.filtroRealce:
-                    imagemProcessada = imagemOriginal.getFiltroRealce();
-                    break;
+                Imagem imagemOriginal = new Imagem(new Bitmap(picOriginal.Image));
+                Bitmap imagemProcessada = null;
+                switch (lstOperacoes.SelectedItem)
+                {
+                    case Operacoes.binarizacao:
+                        imagemProcessada = imagemOriginal.getBinarizacao(Int32.Parse(txtLimiar.Text));
+                        break;
+                    case Operacoes.filtroMedia:
+                        imagemProcessada = imagemOriginal.getFiltroMedia();
+                        break;
+                    case Operacoes.filtroRealce:
+                        imagemProcessada = imagemOriginal.getFiltroRealce();
+                        break;
+                }
+                picProcessada.Image = imagemProcessada;
+                lstHistogramaProcessada.Items.Clear();
+                foreach (int valor in new Imagem(imagemProcessada).getHistograma())
+                {
+                    lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
+                }
             }
-            picProcessada.Image = imagemProcessada;
-            lstHistogramaProcessada.Items.Clear();
-            foreach (int valor in new Imagem(imagemProcessada).getHistograma())
-            {
-                lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
-            }
+            
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             txtLimiar.Text = barLimiar.Value.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,13 +49,12 @@ namespace Processamento_de_Imagens
 
         public Bitmap getBinarizacao(int limiar)
         {
-            Color[][] matriz = getMatriz();
             Bitmap imagem = new Bitmap(this.imagem);
             for (int i = 0; i < this.imagem.Height; i++)
             {
                 for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    if (matriz[i][j].R <= limiar)
+                    if (this.imagem.GetPixel(i, j).R <= limiar)
                     {                
                         imagem.SetPixel(i, j, Color.Black);
                     }
@@ -75,12 +74,11 @@ namespace Processamento_de_Imagens
             {
                 histograma[i] = 0;
             }
-            Color[][] matriz = getMatriz();
             for (int i = 0; i < imagem.Height; i++)
             {
                 for (int j = 0; j < imagem.Width; j++)
                 {
-                    histograma[matriz[i][j].R] += 1;
+                    histograma[this.imagem.GetPixel(i, j).R] += 1;
                 }
             }
             return histograma;
@@ -88,7 +86,6 @@ namespace Processamento_de_Imagens
 
         public Bitmap getFiltroMedia()
         {
-            Color[][] matriz = getMatriz();
             Bitmap imagem = new Bitmap(this.imagem);
             for(int i = 1; i <= imagem.Height-2; i++)
             {
@@ -99,7 +96,7 @@ namespace Processamento_de_Imagens
                     {
                         for(int l = j-1; l <= j+1; l++)
                         {
-                            soma += matriz[k][l].R;   
+                            soma += imagem.GetPixel(k, l).R;   
                         }
                     }
                     int media = soma / 9;
@@ -112,17 +109,16 @@ namespace Processamento_de_Imagens
         public Bitmap processar(int[,] mascara)
         {
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 1; i <= imagem.Height - 2; i++)
+            for (int i = 1; i <= this.imagem.Height - 2; i++)
             {
-                for (int j = 1; j <= imagem.Width - 2; j++)
+                for (int j = 1; j <= this.imagem.Width - 2; j++)
                 {
                     int soma = 0;
                     for (int k = i - 1, m = 0; k <= i + 1; k++, m++)
                     {
                         for (int l = j - 1, n = 0; l <= j + 1; l++, n++)
                         {
-                            
-                            soma += imagem.GetPixel(k, l).R * mascara[m, n];
+                            soma += this.imagem.GetPixel(k, l).R * mascara[m, n];
                             Console.WriteLine("${soma} ${k}, ${l} = ${m}, ${n}");
                         }
                     }
@@ -143,6 +139,5 @@ namespace Processamento_de_Imagens
         {
             return processar(Mascara.getLaplaciano());
         }
-
     }
 }
