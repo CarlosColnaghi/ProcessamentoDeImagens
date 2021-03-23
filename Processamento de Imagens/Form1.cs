@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 
@@ -62,6 +63,8 @@ namespace Processamento_de_Imagens
                         break;
                 }
                 picProcessada.Image = imagemProcessada;
+                txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
+                txtLarguraProcessada.Text = picProcessada.Image.Width.ToString();
                 lstHistogramaProcessada.Items.Clear();
                 foreach (int valor in new Imagem(imagemProcessada).getHistograma())
                 {
@@ -78,7 +81,17 @@ namespace Processamento_de_Imagens
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            if(picProcessada.Image != null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                saveFileDialog.DefaultExt = "png";
+                saveFileDialog.AddExtension = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    picProcessada.Image.Save(saveFileDialog.FileName, ImageFormat.Png);
+                }
+            }
         }
     }
 }

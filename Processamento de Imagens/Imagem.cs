@@ -119,7 +119,6 @@ namespace Processamento_de_Imagens
                         for (int l = j - 1, n = 0; l <= j + 1; l++, n++)
                         {
                             soma += this.imagem.GetPixel(k, l).R * mascara[m, n];
-                            Console.WriteLine("${soma} ${k}, ${l} = ${m}, ${n}");
                         }
                     }
                     if(soma < 0) 
