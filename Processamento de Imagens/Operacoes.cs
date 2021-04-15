@@ -9,6 +9,7 @@ namespace Processamento_de_Imagens
         public const string
             binarizacao = "Binarização",
             filtroMedia = "Filtro de Média",
-            filtroRealce = "Filtro de Realce";
+            filtroLaplace = "Filtro de Laplace",
+            filtroPrewitt = "Filtro de Prewitt";
     }
 }
