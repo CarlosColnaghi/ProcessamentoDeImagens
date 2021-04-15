@@ -41,6 +41,14 @@ namespace Processamento_de_Imagens
                 {
                     lstHistogramaOriginal.Items.Add($"{lstHistogramaOriginal.Items.Count} = {valor}");
                 }
+                int[] histograma = imagem.getHistograma();
+                chtHistogramaOriginal.Series[0].Points.Clear();
+                chtHistogramaOriginal.ChartAreas[0].AxisX.Maximum = histograma.Length-1;
+                chtHistogramaOriginal.ChartAreas[0].AxisX.Minimum = 0;
+                for (int i = 0; i < histograma.Length; i++)
+                {
+                    chtHistogramaOriginal.Series[0].Points.AddXY(i, histograma[i]);
+                }
             }
         }
 
@@ -69,6 +77,14 @@ namespace Processamento_de_Imagens
                 foreach (int valor in new Imagem(imagemProcessada).getHistograma())
                 {
                     lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
+                }
+                int[] histograma = new Imagem(imagemProcessada).getHistograma();
+                chtHistogramaProcessada.Series[0].Points.Clear();
+                chtHistogramaProcessada.ChartAreas[0].AxisX.Maximum = histograma.Length-1;
+                chtHistogramaProcessada.ChartAreas[0].AxisX.Minimum = 0;
+                for (int i = 0; i < histograma.Length; i++)
+                {
+                    chtHistogramaProcessada.Series[0].Points.AddXY(i, histograma[i]);
                 }
             }
             
