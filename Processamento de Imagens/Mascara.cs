@@ -27,5 +27,17 @@ namespace Processamento_de_Imagens
             };
             return mascara;
         }
+
+        public static int[,] getSobel()
+        {
+            int[,] mascara = new int[,]
+            {
+                {-1, -2, -1},
+                {0, 0, 0},
+                {1, 2, 1},
+            };
+            return mascara;
+        }
+
     }
 }

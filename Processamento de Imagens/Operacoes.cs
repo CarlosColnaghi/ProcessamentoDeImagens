@@ -10,6 +10,7 @@ namespace Processamento_de_Imagens
             binarizacao = "Binarização",
             filtroMedia = "Filtro de Média",
             filtroLaplace = "Filtro de Laplace",
-            filtroPrewitt = "Filtro de Prewitt";
+            filtroPrewitt = "Filtro de Prewitt",
+            filtroSobel = "Filtro de Sobel";
     }
 }

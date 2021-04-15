@@ -21,6 +21,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroMedia);
             lstOperacoes.Items.Add(Operacoes.filtroLaplace);
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
+            lstOperacoes.Items.Add(Operacoes.filtroSobel);
             lstOperacoes.SetSelected(0, true);
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -72,6 +73,9 @@ namespace Processamento_de_Imagens
                         break;
                     case Operacoes.filtroPrewitt:
                         imagemProcessada = imagemOriginal.getFiltoPrewitt();
+                        break;
+                    case Operacoes.filtroSobel:
+                        imagemProcessada = imagemOriginal.getFiltoSobel();
                         break;
                 }
                 picProcessada.Image = imagemProcessada;
