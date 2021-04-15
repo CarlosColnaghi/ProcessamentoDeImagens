@@ -15,6 +15,20 @@ namespace Processamento_de_Imagens
         {
             InitializeComponent();
         }
+
+        private void inicializarMascara(DataGridView dataGridView, int [,] mascara)
+        {
+            dataGridView.RowCount = mascara.GetLength(0);
+            dataGridView.ColumnCount = mascara.GetLength(1);
+            for(int i = 0; i < mascara.GetLength(0); i++)
+            {
+                for (int j = 0; j < mascara.GetLength(1); j++)
+                {
+                    dataGridView.Rows[i].Cells[j].Value = mascara[i, j];
+                }
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             lstOperacoes.Items.Add(Operacoes.binarizacao);
@@ -26,6 +40,8 @@ namespace Processamento_de_Imagens
 
             barLimiar.Value = barLimiar.Maximum / 2;
             txtLimiar.Text = barLimiar.Value.ToString();
+
+            inicializarMascara(dgvPrimeiraMascara, Mascara.getLaplace());
         }
 
         private void button2_Click(object sender, EventArgs e)

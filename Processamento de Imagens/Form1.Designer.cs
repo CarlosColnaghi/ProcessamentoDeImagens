@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.l = new System.Windows.Forms.Label();
             this.txtLarguraOriginal = new System.Windows.Forms.TextBox();
             this.txtAlturaOriginal = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.lstOperacoes = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chtHistogramaProcessada = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label4 = new System.Windows.Forms.Label();
             this.txtLarguraProcessada = new System.Windows.Forms.TextBox();
             this.txtAlturaProcessada = new System.Windows.Forms.TextBox();
@@ -53,17 +55,28 @@
             this.label3 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.barLimiar = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLimiar = new System.Windows.Forms.TextBox();
-            this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chtHistogramaProcessada = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.barLimiar = new System.Windows.Forms.TrackBar();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rdbFiltroPrewitt1 = new System.Windows.Forms.RadioButton();
+            this.dgvPrimeiraMascara = new System.Windows.Forms.DataGridView();
+            this.dgvSegundaMascara = new System.Windows.Forms.DataGridView();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProcessada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaProcessada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picProcessada)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +94,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 594);
             this.panel1.TabIndex = 1;
+            // 
+            // chtHistogramaOriginal
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chtHistogramaOriginal.ChartAreas.Add(chartArea3);
+            this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
+            this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
+            this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            this.chtHistogramaOriginal.Series.Add(series3);
+            this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
+            this.chtHistogramaOriginal.TabIndex = 11;
+            this.chtHistogramaOriginal.Text = "chart1";
             // 
             // l
             // 
@@ -159,7 +186,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(308, 373);
+            this.button1.Location = new System.Drawing.Point(308, 497);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(264, 33);
             this.button1.TabIndex = 3;
@@ -182,6 +209,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(297, 594);
             this.panel2.TabIndex = 1;
+            // 
+            // chtHistogramaProcessada
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chtHistogramaProcessada.ChartAreas.Add(chartArea4);
+            this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
+            this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
+            this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series4.ChartArea = "ChartArea1";
+            series4.Name = "Series1";
+            this.chtHistogramaProcessada.Series.Add(series4);
+            this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
+            this.chtHistogramaProcessada.TabIndex = 12;
+            this.chtHistogramaProcessada.Text = "chart1";
             // 
             // label4
             // 
@@ -266,7 +307,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(264, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Controle";
+            this.label2.Text = "Filtro";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -297,51 +338,128 @@
             this.splitter2.TabIndex = 8;
             this.splitter2.TabStop = false;
             // 
-            // barLimiar
+            // label5
             // 
-            this.barLimiar.AutoSize = false;
-            this.barLimiar.LargeChange = 1;
-            this.barLimiar.Location = new System.Drawing.Point(308, 327);
-            this.barLimiar.Maximum = 255;
-            this.barLimiar.Name = "barLimiar";
-            this.barLimiar.Size = new System.Drawing.Size(264, 39);
-            this.barLimiar.TabIndex = 9;
-            this.barLimiar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(309, 306);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(264, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Controle";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(308, 325);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(263, 166);
+            this.tabControl1.TabIndex = 13;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.txtLimiar);
+            this.tabPage1.Controls.Add(this.barLimiar);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(255, 140);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Limiar";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txtLimiar
             // 
-            this.txtLimiar.Location = new System.Drawing.Point(397, 307);
+            this.txtLimiar.Location = new System.Drawing.Point(86, 14);
             this.txtLimiar.Name = "txtLimiar";
             this.txtLimiar.Size = new System.Drawing.Size(86, 20);
-            this.txtLimiar.TabIndex = 10;
+            this.txtLimiar.TabIndex = 14;
             // 
-            // chtHistogramaOriginal
+            // barLimiar
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chtHistogramaOriginal.ChartAreas.Add(chartArea3);
-            this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
-            this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
-            this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.chtHistogramaOriginal.Series.Add(series3);
-            this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
-            this.chtHistogramaOriginal.TabIndex = 11;
-            this.chtHistogramaOriginal.Text = "chart1";
+            this.barLimiar.AutoSize = false;
+            this.barLimiar.BackColor = System.Drawing.Color.White;
+            this.barLimiar.LargeChange = 1;
+            this.barLimiar.Location = new System.Drawing.Point(6, 40);
+            this.barLimiar.Maximum = 255;
+            this.barLimiar.Name = "barLimiar";
+            this.barLimiar.Size = new System.Drawing.Size(243, 39);
+            this.barLimiar.TabIndex = 13;
+            this.barLimiar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // chtHistogramaProcessada
+            // tabPage2
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chtHistogramaProcessada.ChartAreas.Add(chartArea4);
-            this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
-            this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
-            this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.chtHistogramaProcessada.Series.Add(series4);
-            this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
-            this.chtHistogramaProcessada.TabIndex = 12;
-            this.chtHistogramaProcessada.Text = "chart1";
+            this.tabPage2.Controls.Add(this.dgvSegundaMascara);
+            this.tabPage2.Controls.Add(this.radioButton1);
+            this.tabPage2.Controls.Add(this.dgvPrimeiraMascara);
+            this.tabPage2.Controls.Add(this.rdbFiltroPrewitt1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(255, 140);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Máscara";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rdbFiltroPrewitt1
+            // 
+            this.rdbFiltroPrewitt1.AutoSize = true;
+            this.rdbFiltroPrewitt1.Location = new System.Drawing.Point(6, 14);
+            this.rdbFiltroPrewitt1.Name = "rdbFiltroPrewitt1";
+            this.rdbFiltroPrewitt1.Size = new System.Drawing.Size(14, 13);
+            this.rdbFiltroPrewitt1.TabIndex = 0;
+            this.rdbFiltroPrewitt1.TabStop = true;
+            this.rdbFiltroPrewitt1.UseVisualStyleBackColor = true;
+            // 
+            // dgvPrimeiraMascara
+            // 
+            this.dgvPrimeiraMascara.AllowUserToResizeColumns = false;
+            this.dgvPrimeiraMascara.AllowUserToResizeRows = false;
+            this.dgvPrimeiraMascara.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPrimeiraMascara.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPrimeiraMascara.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPrimeiraMascara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrimeiraMascara.ColumnHeadersVisible = false;
+            this.dgvPrimeiraMascara.Location = new System.Drawing.Point(24, 6);
+            this.dgvPrimeiraMascara.Name = "dgvPrimeiraMascara";
+            this.dgvPrimeiraMascara.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPrimeiraMascara.RowHeadersVisible = false;
+            this.dgvPrimeiraMascara.RowHeadersWidth = 40;
+            this.dgvPrimeiraMascara.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvPrimeiraMascara.Size = new System.Drawing.Size(228, 60);
+            this.dgvPrimeiraMascara.TabIndex = 1;
+            // 
+            // dgvSegundaMascara
+            // 
+            this.dgvSegundaMascara.AllowUserToResizeColumns = false;
+            this.dgvSegundaMascara.AllowUserToResizeRows = false;
+            this.dgvSegundaMascara.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSegundaMascara.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvSegundaMascara.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSegundaMascara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSegundaMascara.ColumnHeadersVisible = false;
+            this.dgvSegundaMascara.Location = new System.Drawing.Point(24, 72);
+            this.dgvSegundaMascara.Name = "dgvSegundaMascara";
+            this.dgvSegundaMascara.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSegundaMascara.RowHeadersVisible = false;
+            this.dgvSegundaMascara.RowHeadersWidth = 40;
+            this.dgvSegundaMascara.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvSegundaMascara.Size = new System.Drawing.Size(228, 60);
+            this.dgvSegundaMascara.TabIndex = 3;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 80);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -349,8 +467,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(878, 642);
-            this.Controls.Add(this.txtLimiar);
-            this.Controls.Add(this.barLimiar);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label3);
@@ -367,15 +485,21 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProcessada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaProcessada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picProcessada)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -397,8 +521,6 @@
         private System.Windows.Forms.ListBox lstHistogramaOriginal;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.TrackBar barLimiar;
-        private System.Windows.Forms.TextBox txtLimiar;
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.ListBox O;
         private System.Windows.Forms.ListBox lstHistogramaProcessada;
@@ -407,5 +529,15 @@
         private System.Windows.Forms.TextBox txtAlturaProcessada;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtHistogramaOriginal;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtHistogramaProcessada;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox txtLimiar;
+        private System.Windows.Forms.TrackBar barLimiar;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.RadioButton rdbFiltroPrewitt1;
+        private System.Windows.Forms.DataGridView dgvPrimeiraMascara;
+        private System.Windows.Forms.DataGridView dgvSegundaMascara;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
