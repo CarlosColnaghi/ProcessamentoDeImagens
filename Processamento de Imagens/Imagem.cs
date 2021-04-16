@@ -139,9 +139,9 @@ namespace Processamento_de_Imagens
             return processar(Mascara.getLaplace());
         }
 
-        public Bitmap getFiltoPrewitt()
+        public Bitmap getFiltoPrewitt(int mascara = 0)
         {
-            return processar(Mascara.getPrewitt());
+            return processar(Mascara.getPrewitt(mascara));
         }
 
         public Bitmap getFiltoSobel()

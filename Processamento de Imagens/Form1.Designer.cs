@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.l = new System.Windows.Forms.Label();
@@ -61,10 +61,10 @@
             this.txtLimiar = new System.Windows.Forms.TextBox();
             this.barLimiar = new System.Windows.Forms.TrackBar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.rdbFiltroPrewitt1 = new System.Windows.Forms.RadioButton();
-            this.dgvPrimeiraMascara = new System.Windows.Forms.DataGridView();
             this.dgvSegundaMascara = new System.Windows.Forms.DataGridView();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdbSegundaMascara = new System.Windows.Forms.RadioButton();
+            this.dgvPrimeiraMascara = new System.Windows.Forms.DataGridView();
+            this.rdPrimeiraMascara = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
@@ -75,8 +75,8 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,14 +97,14 @@
             // 
             // chtHistogramaOriginal
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chtHistogramaOriginal.ChartAreas.Add(chartArea3);
+            chartArea9.Name = "ChartArea1";
+            this.chtHistogramaOriginal.ChartAreas.Add(chartArea9);
             this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
             this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.chtHistogramaOriginal.Series.Add(series3);
+            series9.ChartArea = "ChartArea1";
+            series9.Name = "Series1";
+            this.chtHistogramaOriginal.Series.Add(series9);
             this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaOriginal.TabIndex = 11;
             this.chtHistogramaOriginal.Text = "chart1";
@@ -179,6 +179,7 @@
             this.lstOperacoes.Name = "lstOperacoes";
             this.lstOperacoes.Size = new System.Drawing.Size(265, 264);
             this.lstOperacoes.TabIndex = 2;
+            this.lstOperacoes.SelectedValueChanged += new System.EventHandler(this.lstOperacoes_SelectedValueChanged);
             // 
             // button1
             // 
@@ -212,14 +213,14 @@
             // 
             // chtHistogramaProcessada
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chtHistogramaProcessada.ChartAreas.Add(chartArea4);
+            chartArea10.Name = "ChartArea1";
+            this.chtHistogramaProcessada.ChartAreas.Add(chartArea10);
             this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
             this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.chtHistogramaProcessada.Series.Add(series4);
+            series10.ChartArea = "ChartArea1";
+            series10.Name = "Series1";
+            this.chtHistogramaProcessada.Series.Add(series10);
             this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaProcessada.TabIndex = 12;
             this.chtHistogramaProcessada.Text = "chart1";
@@ -359,6 +360,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(263, 166);
             this.tabControl1.TabIndex = 13;
+            this.tabControl1.TabStop = false;
             // 
             // tabPage1
             // 
@@ -394,9 +396,9 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvSegundaMascara);
-            this.tabPage2.Controls.Add(this.radioButton1);
+            this.tabPage2.Controls.Add(this.rdbSegundaMascara);
             this.tabPage2.Controls.Add(this.dgvPrimeiraMascara);
-            this.tabPage2.Controls.Add(this.rdbFiltroPrewitt1);
+            this.tabPage2.Controls.Add(this.rdPrimeiraMascara);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -404,34 +406,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Máscara";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // rdbFiltroPrewitt1
-            // 
-            this.rdbFiltroPrewitt1.AutoSize = true;
-            this.rdbFiltroPrewitt1.Location = new System.Drawing.Point(6, 14);
-            this.rdbFiltroPrewitt1.Name = "rdbFiltroPrewitt1";
-            this.rdbFiltroPrewitt1.Size = new System.Drawing.Size(14, 13);
-            this.rdbFiltroPrewitt1.TabIndex = 0;
-            this.rdbFiltroPrewitt1.TabStop = true;
-            this.rdbFiltroPrewitt1.UseVisualStyleBackColor = true;
-            // 
-            // dgvPrimeiraMascara
-            // 
-            this.dgvPrimeiraMascara.AllowUserToResizeColumns = false;
-            this.dgvPrimeiraMascara.AllowUserToResizeRows = false;
-            this.dgvPrimeiraMascara.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPrimeiraMascara.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPrimeiraMascara.BackgroundColor = System.Drawing.Color.White;
-            this.dgvPrimeiraMascara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrimeiraMascara.ColumnHeadersVisible = false;
-            this.dgvPrimeiraMascara.Location = new System.Drawing.Point(24, 6);
-            this.dgvPrimeiraMascara.Name = "dgvPrimeiraMascara";
-            this.dgvPrimeiraMascara.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvPrimeiraMascara.RowHeadersVisible = false;
-            this.dgvPrimeiraMascara.RowHeadersWidth = 40;
-            this.dgvPrimeiraMascara.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvPrimeiraMascara.Size = new System.Drawing.Size(228, 60);
-            this.dgvPrimeiraMascara.TabIndex = 1;
             // 
             // dgvSegundaMascara
             // 
@@ -442,24 +416,63 @@
             this.dgvSegundaMascara.BackgroundColor = System.Drawing.Color.White;
             this.dgvSegundaMascara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSegundaMascara.ColumnHeadersVisible = false;
+            this.dgvSegundaMascara.Enabled = false;
+            this.dgvSegundaMascara.EnableHeadersVisualStyles = false;
             this.dgvSegundaMascara.Location = new System.Drawing.Point(24, 72);
+            this.dgvSegundaMascara.MultiSelect = false;
             this.dgvSegundaMascara.Name = "dgvSegundaMascara";
+            this.dgvSegundaMascara.ReadOnly = true;
             this.dgvSegundaMascara.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSegundaMascara.RowHeadersVisible = false;
             this.dgvSegundaMascara.RowHeadersWidth = 40;
             this.dgvSegundaMascara.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvSegundaMascara.Size = new System.Drawing.Size(228, 60);
             this.dgvSegundaMascara.TabIndex = 3;
+            this.dgvSegundaMascara.TabStop = false;
             // 
-            // radioButton1
+            // rdbSegundaMascara
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 80);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbSegundaMascara.AutoSize = true;
+            this.rdbSegundaMascara.Location = new System.Drawing.Point(6, 80);
+            this.rdbSegundaMascara.Name = "rdbSegundaMascara";
+            this.rdbSegundaMascara.Size = new System.Drawing.Size(14, 13);
+            this.rdbSegundaMascara.TabIndex = 2;
+            this.rdbSegundaMascara.UseVisualStyleBackColor = true;
+            // 
+            // dgvPrimeiraMascara
+            // 
+            this.dgvPrimeiraMascara.AllowUserToResizeColumns = false;
+            this.dgvPrimeiraMascara.AllowUserToResizeRows = false;
+            this.dgvPrimeiraMascara.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPrimeiraMascara.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPrimeiraMascara.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPrimeiraMascara.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPrimeiraMascara.ColumnHeadersVisible = false;
+            this.dgvPrimeiraMascara.Enabled = false;
+            this.dgvPrimeiraMascara.EnableHeadersVisualStyles = false;
+            this.dgvPrimeiraMascara.Location = new System.Drawing.Point(24, 6);
+            this.dgvPrimeiraMascara.MultiSelect = false;
+            this.dgvPrimeiraMascara.Name = "dgvPrimeiraMascara";
+            this.dgvPrimeiraMascara.ReadOnly = true;
+            this.dgvPrimeiraMascara.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPrimeiraMascara.RowHeadersVisible = false;
+            this.dgvPrimeiraMascara.RowHeadersWidth = 40;
+            this.dgvPrimeiraMascara.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvPrimeiraMascara.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvPrimeiraMascara.Size = new System.Drawing.Size(228, 60);
+            this.dgvPrimeiraMascara.TabIndex = 1;
+            this.dgvPrimeiraMascara.TabStop = false;
+            // 
+            // rdPrimeiraMascara
+            // 
+            this.rdPrimeiraMascara.AutoSize = true;
+            this.rdPrimeiraMascara.Checked = true;
+            this.rdPrimeiraMascara.Location = new System.Drawing.Point(6, 14);
+            this.rdPrimeiraMascara.Name = "rdPrimeiraMascara";
+            this.rdPrimeiraMascara.Size = new System.Drawing.Size(14, 13);
+            this.rdPrimeiraMascara.TabIndex = 0;
+            this.rdPrimeiraMascara.TabStop = true;
+            this.rdPrimeiraMascara.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -497,8 +510,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barLimiar)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -535,9 +548,9 @@
         private System.Windows.Forms.TextBox txtLimiar;
         private System.Windows.Forms.TrackBar barLimiar;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.RadioButton rdbFiltroPrewitt1;
+        private System.Windows.Forms.RadioButton rdPrimeiraMascara;
         private System.Windows.Forms.DataGridView dgvPrimeiraMascara;
         private System.Windows.Forms.DataGridView dgvSegundaMascara;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbSegundaMascara;
     }
 }

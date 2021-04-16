@@ -16,19 +16,6 @@ namespace Processamento_de_Imagens
             InitializeComponent();
         }
 
-        private void inicializarMascara(DataGridView dataGridView, int [,] mascara)
-        {
-            dataGridView.RowCount = mascara.GetLength(0);
-            dataGridView.ColumnCount = mascara.GetLength(1);
-            for(int i = 0; i < mascara.GetLength(0); i++)
-            {
-                for (int j = 0; j < mascara.GetLength(1); j++)
-                {
-                    dataGridView.Rows[i].Cells[j].Value = mascara[i, j];
-                }
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             lstOperacoes.Items.Add(Operacoes.binarizacao);
@@ -36,12 +23,10 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroLaplace);
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
             lstOperacoes.Items.Add(Operacoes.filtroSobel);
-            lstOperacoes.SetSelected(0, true);
+            lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
             txtLimiar.Text = barLimiar.Value.ToString();
-
-            inicializarMascara(dgvPrimeiraMascara, Mascara.getLaplace());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -76,6 +61,15 @@ namespace Processamento_de_Imagens
             {
                 Imagem imagemOriginal = new Imagem(new Bitmap(picOriginal.Image));
                 Bitmap imagemProcessada = null;
+                int mascara = 0;
+                if (rdPrimeiraMascara.Checked)
+                {
+                    mascara = 0;
+                }
+                else
+                {
+                    mascara = 1;
+                }
                 switch (lstOperacoes.SelectedItem)
                 {
                     case Operacoes.binarizacao:
@@ -88,7 +82,7 @@ namespace Processamento_de_Imagens
                         imagemProcessada = imagemOriginal.getFiltroLaplace();
                         break;
                     case Operacoes.filtroPrewitt:
-                        imagemProcessada = imagemOriginal.getFiltoPrewitt();
+                        imagemProcessada = imagemOriginal.getFiltoPrewitt(mascara);
                         break;
                     case Operacoes.filtroSobel:
                         imagemProcessada = imagemOriginal.getFiltoSobel();
@@ -131,6 +125,21 @@ namespace Processamento_de_Imagens
                 {
                     picProcessada.Image.Save(saveFileDialog.FileName, ImageFormat.Png);
                 }
+            }
+        }
+
+        private void lstOperacoes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (lstOperacoes.SelectedItem)
+            {
+                case Operacoes.binarizacao:
+                    tabControl1.SelectedIndex = 0;
+                    break;
+                case Operacoes.filtroPrewitt:
+                    tabControl1.SelectedIndex = 1;
+                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getPrewitt(0));
+                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getPrewitt(1));
+                    break;
             }
         }
     }
