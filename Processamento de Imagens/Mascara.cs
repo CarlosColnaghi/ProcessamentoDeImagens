@@ -19,10 +19,10 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
-        public static int[,] getPrewitt(int x = 0)
+        public static int[,] getPrewitt(int tipo = 0)
         {
             int[,] mascara = null;
-            switch(x)
+            switch(tipo)
             {
                 case 0:
                     mascara = new int[,]
@@ -44,14 +44,29 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
-        public static int[,] getSobel()
+        public static int[,] getSobel(int tipo = 0)
         {
-            int[,] mascara = new int[,]
+            int[,] mascara = null;
+            switch (tipo)
             {
-                {-1, -2, -1},
-                {0, 0, 0},
-                {1, 2, 1},
-            };
+                case 0:
+                    mascara = new int[,]
+                    {
+                        {-1, -2, -1},
+                        {0, 0, 0},
+                        {1, 2, 1},
+                    };
+                    break;
+                case 1:
+                     mascara = new int[,]
+                    {
+                        {-1, 0, 1},
+                        {-2, 0, 2},
+                        {-1, 0, 1},
+                    };
+                    break;
+            }
+                
             return mascara;
         }
 

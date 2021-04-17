@@ -85,7 +85,7 @@ namespace Processamento_de_Imagens
                         imagemProcessada = imagemOriginal.getFiltoPrewitt(mascara);
                         break;
                     case Operacoes.filtroSobel:
-                        imagemProcessada = imagemOriginal.getFiltoSobel();
+                        imagemProcessada = imagemOriginal.getFiltoSobel(mascara);
                         break;
                 }
                 picProcessada.Image = imagemProcessada;
@@ -139,6 +139,11 @@ namespace Processamento_de_Imagens
                     tabControl1.SelectedIndex = 1;
                     Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getPrewitt(0));
                     Mascara.preencherTabela(dgvSegundaMascara, Mascara.getPrewitt(1));
+                    break;
+                case Operacoes.filtroSobel:
+                    tabControl1.SelectedIndex = 1;
+                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getSobel(0));
+                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getSobel(1));
                     break;
             }
         }
