@@ -79,7 +79,7 @@ namespace Processamento_de_Imagens
                         imagemProcessada = imagemOriginal.getFiltroMedia();
                         break;
                     case Operacoes.filtroLaplace:
-                        imagemProcessada = imagemOriginal.getFiltroLaplace();
+                        imagemProcessada = imagemOriginal.getFiltroLaplace(mascara);
                         break;
                     case Operacoes.filtroPrewitt:
                         imagemProcessada = imagemOriginal.getFiltoPrewitt(mascara);
@@ -134,6 +134,11 @@ namespace Processamento_de_Imagens
             {
                 case Operacoes.binarizacao:
                     tabControl1.SelectedIndex = 0;
+                    break;
+                case Operacoes.filtroLaplace:
+                    tabControl1.SelectedIndex = 1;
+                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getLaplace(0));
+                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getLaplace(1));
                     break;
                 case Operacoes.filtroPrewitt:
                     tabControl1.SelectedIndex = 1;
