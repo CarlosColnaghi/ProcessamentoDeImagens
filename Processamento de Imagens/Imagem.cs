@@ -78,7 +78,7 @@ namespace Processamento_de_Imagens
             {
                 for (int j = 0; j < imagem.Width; j++)
                 {
-                    histograma[this.imagem.GetPixel(i, j).R] += 1;
+                    histograma[this.imagem.GetPixel(j, i).R] += 1;
                 }
             }
             return histograma;
@@ -96,11 +96,11 @@ namespace Processamento_de_Imagens
                     {
                         for(int l = j-1; l <= j+1; l++)
                         {
-                            soma += imagem.GetPixel(k, l).R;   
+                            soma += imagem.GetPixel(l, k).R;   
                         }
                     }
                     int media = soma / 9;
-                    imagem.SetPixel(i, j, Color.FromArgb(255, media, media, media));
+                    imagem.SetPixel(j, i, Color.FromArgb(255, media, media, media));
                 }
             }
             return imagem;
@@ -118,7 +118,7 @@ namespace Processamento_de_Imagens
                     {
                         for (int l = j - 1, n = 0; l <= j + 1; l++, n++)
                         {
-                            soma += this.imagem.GetPixel(k, l).R * mascara[m, n];
+                            soma += this.imagem.GetPixel(l, k).R * mascara[m, n];
                         }
                     }
                     if(soma < 0) 
@@ -128,7 +128,7 @@ namespace Processamento_de_Imagens
                     {
                         soma = 255;
                     }
-                    imagem.SetPixel(i, j, Color.FromArgb(255, soma, soma, soma));
+                    imagem.SetPixel(j, i, Color.FromArgb(255, soma, soma, soma));
                 }
             }
             return imagem;
