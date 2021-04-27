@@ -11,6 +11,7 @@ namespace Processamento_de_Imagens
             filtroMedia = "Filtro de Média",
             filtroLaplace = "Filtro de Laplace",
             filtroPrewitt = "Filtro de Prewitt",
-            filtroSobel = "Filtro de Sobel";
+            filtroSobel = "Filtro de Sobel",
+            equalizacao = "Equalização";
     }
 }

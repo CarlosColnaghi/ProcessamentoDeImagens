@@ -149,5 +149,33 @@ namespace Processamento_de_Imagens
             return processar(Mascara.getSobel(mascara));
         }
 
+        public Bitmap getEqualizacao()
+        {
+            Bitmap imagem = new Bitmap(this.imagem.Width, this.imagem.Height);
+            int[] histograma = getHistograma();
+            int[] histogramaNovo = new int[histograma.Length];
+            int auxiliar = 0, ideal = (this.imagem.Width * this.imagem.Height) / histograma.Length;
+            for(int i = 0; i < histograma.Length; i++)
+            {
+                auxiliar += histograma[i];
+                if(((auxiliar/ideal)-1) > 0){
+                    histogramaNovo[i] = (auxiliar / ideal) - 1;
+                }
+                else
+                {
+                    histogramaNovo[i] = 0;
+                }
+            }
+            for(int i = 0; i < this.imagem.Height; i++)
+            {
+                for(int j = 0; j < this.imagem.Width; j++)
+                {
+                    int cor = this.imagem.GetPixel(j, i).R;
+                    imagem.SetPixel(j, i, Color.FromArgb(255, histogramaNovo[cor], histogramaNovo[cor], histogramaNovo[cor]));
+                }
+            }
+            return imagem;
+        }
+
     }
 }

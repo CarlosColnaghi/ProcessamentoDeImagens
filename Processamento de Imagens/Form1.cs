@@ -23,6 +23,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroLaplace);
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
             lstOperacoes.Items.Add(Operacoes.filtroSobel);
+            lstOperacoes.Items.Add(Operacoes.equalizacao);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -87,6 +88,9 @@ namespace Processamento_de_Imagens
                     case Operacoes.filtroSobel:
                         imagemProcessada = imagemOriginal.getFiltoSobel(mascara);
                         break;
+                    case Operacoes.equalizacao:
+                        imagemProcessada = imagemOriginal.getEqualizacao();
+                        break;
                 }
                 picProcessada.Image = imagemProcessada;
                 txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
@@ -150,6 +154,17 @@ namespace Processamento_de_Imagens
                     Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getSobel(0));
                     Mascara.preencherTabela(dgvSegundaMascara, Mascara.getSobel(1));
                     break;
+                case Operacoes.equalizacao:
+                    tabControl1.SelectedIndex = -1;
+                    break;
+            }
+            if (tabControl1.SelectedIndex >= 0)
+            {
+                tabControl1.Enabled = true;
+            }
+            else
+            {
+                tabControl1.Enabled = false;
             }
         }
     }
