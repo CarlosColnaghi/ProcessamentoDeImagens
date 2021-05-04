@@ -24,6 +24,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
             lstOperacoes.Items.Add(Operacoes.filtroSobel);
             lstOperacoes.Items.Add(Operacoes.equalizacao);
+            lstOperacoes.Items.Add(Operacoes.filtroRoberts);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -87,6 +88,9 @@ namespace Processamento_de_Imagens
                         break;
                     case Operacoes.filtroSobel:
                         imagemProcessada = imagemOriginal.getFiltoSobel(mascara);
+                        break;
+                    case Operacoes.filtroRoberts:
+                        imagemProcessada = imagemOriginal.getFiltroRoberts();
                         break;
                     case Operacoes.equalizacao:
                         imagemProcessada = imagemOriginal.getEqualizacao();
@@ -153,6 +157,9 @@ namespace Processamento_de_Imagens
                     tabControl1.SelectedIndex = 1;
                     Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getSobel(0));
                     Mascara.preencherTabela(dgvSegundaMascara, Mascara.getSobel(1));
+                    break;
+                case Operacoes.filtroRoberts:
+                    tabControl1.SelectedIndex = 1;
                     break;
                 case Operacoes.equalizacao:
                     tabControl1.SelectedIndex = -1;

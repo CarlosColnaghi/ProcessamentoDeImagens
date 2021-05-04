@@ -106,7 +106,7 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
-        public Bitmap processar(int[,] mascara)
+        private Bitmap processar(int[,] mascara)
         {
             Bitmap imagem = new Bitmap(this.imagem);
             for (int i = 1; i <= this.imagem.Height - 2; i++)
@@ -147,6 +147,37 @@ namespace Processamento_de_Imagens
         public Bitmap getFiltoSobel(int mascara = 0)
         {
             return processar(Mascara.getSobel(mascara));
+        }
+
+        //TODO: Refatorar a função getFiltroRoberts();
+        public Bitmap getFiltroRoberts()
+        {
+            int[,] mascara = new int[,]
+            {
+                {1, 0},
+                {0, -1}
+            };
+            Bitmap imagem = new Bitmap(this.imagem);
+            for(int i = 0; i <= this.imagem.Height-2; i++)
+            {
+                for(int j = 0; j <= this.imagem.Width-2; j++)
+                {
+                    int soma = 0;
+                    for(int k = i, m = 0; k <= i+1; k++, m++)
+                    {
+                        for(int l = j, n = 0; l <= j+1; l++, n++)
+                        {
+                            soma += this.imagem.GetPixel(l, k).R * mascara[m, n];
+                        }
+                    }
+                    if (soma < 0)
+                    {
+                        soma = soma * -1;
+                    }
+                    imagem.SetPixel(j, i, Color.FromArgb(255, soma, soma, soma));
+                }
+            }
+            return imagem;
         }
 
         public Bitmap getEqualizacao()
