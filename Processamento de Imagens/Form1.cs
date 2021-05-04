@@ -72,19 +72,7 @@ namespace Processamento_de_Imagens
                 else
                 {
                     mascara = 1;
-                }
-                if (rdVermelho.Checked)
-                {
-                    canal = 0;
-                }
-                else if (rdVerde.Checked)
-                {
-                    canal = 1;
-                }
-                else
-                {
-                    canal = 2;
-                }
+                }         
                 switch (lstOperacoes.SelectedItem)
                 {
                     case Operacoes.binarizacao:
@@ -109,6 +97,18 @@ namespace Processamento_de_Imagens
                         imagemProcessada = imagemOriginal.getEqualizacao();
                         break;
                     case Operacoes.canal:
+                        if (rdVermelho.Checked)
+                        {
+                            canal = 0;
+                        }
+                        else if (rdVerde.Checked)
+                        {
+                            canal = 1;
+                        }
+                        else
+                        {
+                            canal = 2;
+                        }
                         imagemProcessada = imagemOriginal.getCanal(canal);
                         break;
                 }
@@ -116,11 +116,11 @@ namespace Processamento_de_Imagens
                 txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
                 txtLarguraProcessada.Text = picProcessada.Image.Width.ToString();
                 lstHistogramaProcessada.Items.Clear();
-                foreach (int valor in new Imagem(imagemProcessada).getHistograma())
+                foreach (int valor in new Imagem(imagemProcessada).getHistograma(canal))
                 {
                     lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
                 }
-                int[] histograma = new Imagem(imagemProcessada).getHistograma();
+                int[] histograma = new Imagem(imagemProcessada).getHistograma(canal);
                 chtHistogramaProcessada.Series[0].Points.Clear();
                 chtHistogramaProcessada.ChartAreas[0].AxisX.Maximum = histograma.Length-1;
                 chtHistogramaProcessada.ChartAreas[0].AxisX.Minimum = 0;
@@ -181,7 +181,7 @@ namespace Processamento_de_Imagens
                     tabControl1.SelectedIndex = -1;
                     break;
                 case Operacoes.canal:
-                    tabControl1.SelectedIndex = 3;
+                    tabControl1.SelectedIndex = 2;
                     break;
             }
             if (tabControl1.SelectedIndex >= 0)

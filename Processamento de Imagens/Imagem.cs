@@ -67,7 +67,7 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
-        public int[] getHistograma()
+        public int[] getHistograma(int canal = 0)
         {
             int[] histograma = new int[256];
             for (int i = 0; i < 255; i++)
@@ -78,7 +78,17 @@ namespace Processamento_de_Imagens
             {
                 for (int j = 0; j < imagem.Width; j++)
                 {
-                    histograma[this.imagem.GetPixel(j, i).R] += 1;
+                    switch(canal){
+                        case 0:
+                            histograma[this.imagem.GetPixel(j, i).R] += 1;
+                            break;
+                        case 1:
+                            histograma[this.imagem.GetPixel(j, i).G] += 1;
+                            break;
+                        case 2:
+                            histograma[this.imagem.GetPixel(j, i).B] += 1;
+                            break;
+                    }         
                 }
             }
             return histograma;
@@ -208,7 +218,7 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
-        public Bitmap getCanal(int canal)
+        public Bitmap getCanal(int canal = 0)
         {
             Bitmap imagem = new Bitmap(this.imagem);
             for (int i = 0; i < this.imagem.Width; i++)
