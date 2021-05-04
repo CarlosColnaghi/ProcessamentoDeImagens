@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.l = new System.Windows.Forms.Label();
@@ -65,6 +65,10 @@
             this.rdbSegundaMascara = new System.Windows.Forms.RadioButton();
             this.dgvPrimeiraMascara = new System.Windows.Forms.DataGridView();
             this.rdPrimeiraMascara = new System.Windows.Forms.RadioButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rdVermelho = new System.Windows.Forms.RadioButton();
+            this.rdVerde = new System.Windows.Forms.RadioButton();
+            this.rdAzul = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
@@ -77,6 +81,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,14 +102,14 @@
             // 
             // chtHistogramaOriginal
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chtHistogramaOriginal.ChartAreas.Add(chartArea9);
+            chartArea1.Name = "ChartArea1";
+            this.chtHistogramaOriginal.ChartAreas.Add(chartArea1);
             this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
             this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series9.ChartArea = "ChartArea1";
-            series9.Name = "Series1";
-            this.chtHistogramaOriginal.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.chtHistogramaOriginal.Series.Add(series1);
             this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaOriginal.TabIndex = 11;
             this.chtHistogramaOriginal.Text = "chart1";
@@ -213,14 +218,14 @@
             // 
             // chtHistogramaProcessada
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chtHistogramaProcessada.ChartAreas.Add(chartArea10);
+            chartArea2.Name = "ChartArea1";
+            this.chtHistogramaProcessada.ChartAreas.Add(chartArea2);
             this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
             this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series10.ChartArea = "ChartArea1";
-            series10.Name = "Series1";
-            this.chtHistogramaProcessada.Series.Add(series10);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.chtHistogramaProcessada.Series.Add(series2);
             this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaProcessada.TabIndex = 12;
             this.chtHistogramaProcessada.Text = "chart1";
@@ -355,6 +360,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(308, 325);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -474,6 +480,50 @@
             this.rdPrimeiraMascara.TabStop = true;
             this.rdPrimeiraMascara.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.rdAzul);
+            this.tabPage3.Controls.Add(this.rdVerde);
+            this.tabPage3.Controls.Add(this.rdVermelho);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(255, 140);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Canal";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // rdVermelho
+            // 
+            this.rdVermelho.AutoSize = true;
+            this.rdVermelho.Checked = true;
+            this.rdVermelho.Location = new System.Drawing.Point(13, 14);
+            this.rdVermelho.Name = "rdVermelho";
+            this.rdVermelho.Size = new System.Drawing.Size(69, 17);
+            this.rdVermelho.TabIndex = 0;
+            this.rdVermelho.TabStop = true;
+            this.rdVermelho.Text = "Vermelho";
+            this.rdVermelho.UseVisualStyleBackColor = true;
+            // 
+            // rdVerde
+            // 
+            this.rdVerde.AutoSize = true;
+            this.rdVerde.Location = new System.Drawing.Point(13, 37);
+            this.rdVerde.Name = "rdVerde";
+            this.rdVerde.Size = new System.Drawing.Size(53, 17);
+            this.rdVerde.TabIndex = 1;
+            this.rdVerde.Text = "Verde";
+            this.rdVerde.UseVisualStyleBackColor = true;
+            // 
+            // rdAzul
+            // 
+            this.rdAzul.AutoSize = true;
+            this.rdAzul.Location = new System.Drawing.Point(13, 60);
+            this.rdAzul.Name = "rdAzul";
+            this.rdAzul.Size = new System.Drawing.Size(45, 17);
+            this.rdAzul.TabIndex = 2;
+            this.rdAzul.Text = "Azul";
+            this.rdAzul.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,6 +562,8 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -552,5 +604,9 @@
         private System.Windows.Forms.DataGridView dgvPrimeiraMascara;
         private System.Windows.Forms.DataGridView dgvSegundaMascara;
         private System.Windows.Forms.RadioButton rdbSegundaMascara;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RadioButton rdAzul;
+        private System.Windows.Forms.RadioButton rdVerde;
+        private System.Windows.Forms.RadioButton rdVermelho;
     }
 }

@@ -23,8 +23,9 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroLaplace);
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
             lstOperacoes.Items.Add(Operacoes.filtroSobel);
-            lstOperacoes.Items.Add(Operacoes.equalizacao);
             lstOperacoes.Items.Add(Operacoes.filtroRoberts);
+            lstOperacoes.Items.Add(Operacoes.equalizacao);
+            lstOperacoes.Items.Add(Operacoes.canal);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -63,7 +64,7 @@ namespace Processamento_de_Imagens
             {
                 Imagem imagemOriginal = new Imagem(new Bitmap(picOriginal.Image));
                 Bitmap imagemProcessada = null;
-                int mascara = 0;
+                int mascara = 0, canal = 0;
                 if (rdPrimeiraMascara.Checked)
                 {
                     mascara = 0;
@@ -71,6 +72,18 @@ namespace Processamento_de_Imagens
                 else
                 {
                     mascara = 1;
+                }
+                if (rdVermelho.Checked)
+                {
+                    canal = 0;
+                }
+                else if (rdVerde.Checked)
+                {
+                    canal = 1;
+                }
+                else
+                {
+                    canal = 2;
                 }
                 switch (lstOperacoes.SelectedItem)
                 {
@@ -94,6 +107,9 @@ namespace Processamento_de_Imagens
                         break;
                     case Operacoes.equalizacao:
                         imagemProcessada = imagemOriginal.getEqualizacao();
+                        break;
+                    case Operacoes.canal:
+                        imagemProcessada = imagemOriginal.getCanal(canal);
                         break;
                 }
                 picProcessada.Image = imagemProcessada;
@@ -163,6 +179,9 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.equalizacao:
                     tabControl1.SelectedIndex = -1;
+                    break;
+                case Operacoes.canal:
+                    tabControl1.SelectedIndex = 3;
                     break;
             }
             if (tabControl1.SelectedIndex >= 0)

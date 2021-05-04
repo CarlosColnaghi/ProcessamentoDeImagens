@@ -13,6 +13,7 @@ namespace Processamento_de_Imagens
             filtroPrewitt = "Filtro de Prewitt",
             filtroSobel = "Filtro de Sobel",
             filtroRoberts = "Filtro de Roberts",
-            equalizacao = "Equalização";
+            equalizacao = "Equalização",
+            canal = "Canais";
     }
 }

@@ -208,5 +208,30 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
+        public Bitmap getCanal(int canal)
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            for (int i = 0; i < this.imagem.Width; i++)
+            {
+                for (int j = 0; j < this.imagem.Height; j++)
+                {
+                    Color pixel = this.imagem.GetPixel(i, j);
+                    switch (canal)
+                    {
+                        case 0:
+                            imagem.SetPixel(i, j, Color.FromArgb(255, pixel.R, 0, 0));
+                            break;
+                        case 1:
+                            imagem.SetPixel(i, j, Color.FromArgb(255, 0, pixel.G, 0));
+                            break;
+                        case 2:
+                            imagem.SetPixel(i, j, Color.FromArgb(255, 0, 0, pixel.B));
+                            break;
+                    }
+                }
+            }
+            return imagem;
+        }
+
     }
 }
