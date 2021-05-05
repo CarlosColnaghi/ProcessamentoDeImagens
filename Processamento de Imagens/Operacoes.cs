@@ -14,6 +14,10 @@ namespace Processamento_de_Imagens
             filtroSobel = "Filtro de Sobel",
             filtroRoberts = "Filtro de Roberts",
             equalizacao = "Equalização",
-            canal = "Canais";
+            canal = "Canais",
+            metodoMaximoCanal = "Método Máximo Canal",
+            metodoConversaoClassico = "Método Conversão Clássico",
+            metodoMediaCanal = "Método Média Canal";
+
     }
 }

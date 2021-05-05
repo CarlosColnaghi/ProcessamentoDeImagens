@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 
 namespace Processamento_de_Imagens
@@ -238,6 +239,51 @@ namespace Processamento_de_Imagens
                             imagem.SetPixel(i, j, Color.FromArgb(255, 0, 0, pixel.B));
                             break;
                     }
+                }
+            }
+            return imagem;
+        }
+
+        public Bitmap getMetodoMaximoCanal()
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            for (int i = 0; i < this.imagem.Width; i++)
+            {
+                for (int j = 0; j < this.imagem.Height; j++)
+                {
+                    Color pixel = this.imagem.GetPixel(i, j);
+                    int[] cores = { pixel.R, pixel.G, pixel.B };
+                    imagem.SetPixel(i, j, Color.FromArgb(255, cores.Max(), cores.Max(), cores.Max()));
+                }
+            }
+            return imagem;
+        }
+
+        public Bitmap getMetodoConversaoClassico()
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            for (int i = 0; i < this.imagem.Width; i++)
+            {
+                for (int j = 0; j < this.imagem.Height; j++)
+                {
+                    Color pixel = this.imagem.GetPixel(i, j);
+                    int cor = (int)(0.29 * pixel.R + 0.59 * pixel.G + 0.11 * pixel.B);
+                    imagem.SetPixel(i, j, Color.FromArgb(255, cor, cor, cor));
+                }
+            }
+            return imagem;
+        }
+
+        public Bitmap getMetodoMediaCanal()
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            for (int i = 0; i < this.imagem.Width; i++)
+            {
+                for (int j = 0; j < this.imagem.Height; j++)
+                {
+                    Color pixel = this.imagem.GetPixel(i, j);
+                    int cor = (int)((pixel.R + pixel.G + pixel.B) / 3);
+                    imagem.SetPixel(i, j, Color.FromArgb(255, cor, cor, cor));
                 }
             }
             return imagem;

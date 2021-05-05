@@ -26,6 +26,9 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.filtroRoberts);
             lstOperacoes.Items.Add(Operacoes.equalizacao);
             lstOperacoes.Items.Add(Operacoes.canal);
+            lstOperacoes.Items.Add(Operacoes.metodoMaximoCanal);
+            lstOperacoes.Items.Add(Operacoes.metodoConversaoClassico);
+            lstOperacoes.Items.Add(Operacoes.metodoMediaCanal);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -111,6 +114,15 @@ namespace Processamento_de_Imagens
                         }
                         imagemProcessada = imagemOriginal.getCanal(canal);
                         break;
+                    case Operacoes.metodoMaximoCanal:
+                        imagemProcessada = imagemOriginal.getMetodoMaximoCanal();
+                        break;
+                    case Operacoes.metodoConversaoClassico:
+                        imagemProcessada = imagemOriginal.getMetodoConversaoClassico();
+                        break;
+                    case Operacoes.metodoMediaCanal:
+                        imagemProcessada = imagemOriginal.getMetodoMediaCanal();
+                        break;
                 }
                 picProcessada.Image = imagemProcessada;
                 txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
@@ -177,11 +189,11 @@ namespace Processamento_de_Imagens
                 case Operacoes.filtroRoberts:
                     tabControl1.SelectedIndex = 1;
                     break;
-                case Operacoes.equalizacao:
-                    tabControl1.SelectedIndex = -1;
-                    break;
                 case Operacoes.canal:
                     tabControl1.SelectedIndex = 2;
+                    break;
+                default:
+                    tabControl1.SelectedIndex = -1;
                     break;
             }
             if (tabControl1.SelectedIndex >= 0)
