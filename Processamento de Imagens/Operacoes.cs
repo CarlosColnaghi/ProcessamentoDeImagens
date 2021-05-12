@@ -17,7 +17,8 @@ namespace Processamento_de_Imagens
             canal = "Canais",
             metodoMaximoCanal = "Método Máximo Canal",
             metodoConversaoClassico = "Método Conversão Clássico",
-            metodoMediaCanal = "Método Média Canal";
+            metodoMediaCanal = "Método Média Canal",
+            quantizacao = "Quantização";
 
     }
 }

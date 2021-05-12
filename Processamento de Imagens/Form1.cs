@@ -29,6 +29,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.metodoMaximoCanal);
             lstOperacoes.Items.Add(Operacoes.metodoConversaoClassico);
             lstOperacoes.Items.Add(Operacoes.metodoMediaCanal);
+            lstOperacoes.Items.Add(Operacoes.quantizacao);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -123,6 +124,9 @@ namespace Processamento_de_Imagens
                     case Operacoes.metodoMediaCanal:
                         imagemProcessada = imagemOriginal.getMetodoMediaCanal();
                         break;
+                    case Operacoes.quantizacao:
+                        imagemProcessada = imagemOriginal.getQuantizacao(Convert.ToInt32(cmbNumeroCanais.Text));
+                        break;
                 }
                 picProcessada.Image = imagemProcessada;
                 txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
@@ -191,6 +195,11 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.canal:
                     tabControl1.SelectedIndex = 2;
+                    break;
+                case Operacoes.quantizacao:
+                    tabControl1.SelectedIndex = 3;
+                    cmbNumeroCanais.SelectedItem = 0;
+                    cmbNumeroCanais.SelectedIndex = 0;
                     break;
                 default:
                     tabControl1.SelectedIndex = -1;

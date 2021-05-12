@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.l = new System.Windows.Forms.Label();
@@ -69,6 +69,8 @@
             this.rdAzul = new System.Windows.Forms.RadioButton();
             this.rdVerde = new System.Windows.Forms.RadioButton();
             this.rdVermelho = new System.Windows.Forms.RadioButton();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cmbNumeroCanais = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chtHistogramaOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
@@ -82,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSegundaMascara)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,14 +105,14 @@
             // 
             // chtHistogramaOriginal
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chtHistogramaOriginal.ChartAreas.Add(chartArea3);
+            chartArea7.Name = "ChartArea1";
+            this.chtHistogramaOriginal.ChartAreas.Add(chartArea7);
             this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
             this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.chtHistogramaOriginal.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.Name = "Series1";
+            this.chtHistogramaOriginal.Series.Add(series7);
             this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaOriginal.TabIndex = 11;
             this.chtHistogramaOriginal.Text = "chart1";
@@ -218,14 +221,14 @@
             // 
             // chtHistogramaProcessada
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chtHistogramaProcessada.ChartAreas.Add(chartArea4);
+            chartArea8.Name = "ChartArea1";
+            this.chtHistogramaProcessada.ChartAreas.Add(chartArea8);
             this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
             this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.chtHistogramaProcessada.Series.Add(series4);
+            series8.ChartArea = "ChartArea1";
+            series8.Name = "Series1";
+            this.chtHistogramaProcessada.Series.Add(series8);
             this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaProcessada.TabIndex = 12;
             this.chtHistogramaProcessada.Text = "chart1";
@@ -361,6 +364,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(308, 325);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -524,6 +528,33 @@
             this.rdVermelho.Text = "Vermelho";
             this.rdVermelho.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.cmbNumeroCanais);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(255, 140);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Número de Canais";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // cmbNumeroCanais
+            // 
+            this.cmbNumeroCanais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNumeroCanais.FormattingEnabled = true;
+            this.cmbNumeroCanais.Items.AddRange(new object[] {
+            "2",
+            "4",
+            "8",
+            "16",
+            "32",
+            "64",
+            "128"});
+            this.cmbNumeroCanais.Location = new System.Drawing.Point(70, 14);
+            this.cmbNumeroCanais.Name = "cmbNumeroCanais";
+            this.cmbNumeroCanais.Size = new System.Drawing.Size(121, 21);
+            this.cmbNumeroCanais.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +595,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimeiraMascara)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -608,5 +640,7 @@
         private System.Windows.Forms.RadioButton rdAzul;
         private System.Windows.Forms.RadioButton rdVerde;
         private System.Windows.Forms.RadioButton rdVermelho;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox cmbNumeroCanais;
     }
 }

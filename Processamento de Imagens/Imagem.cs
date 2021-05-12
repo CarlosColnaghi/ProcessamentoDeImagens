@@ -289,5 +289,22 @@ namespace Processamento_de_Imagens
             return imagem;
         }
 
+        public Bitmap getQuantizacao(int quantidadeCanais)
+        {
+            Bitmap imagem = new Bitmap(this.imagem);
+            int divisao = 256 / quantidadeCanais;
+            for (int i = 0; i < this.imagem.Height; i++)
+            {
+                for(int j = 0; j < this.imagem.Width; j++)
+                {
+                    int cor = this.imagem.GetPixel(j, i).R;
+                    int calculoCor = cor % divisao;
+                    calculoCor = divisao - calculoCor- 1;
+                    cor += calculoCor;
+                    imagem.SetPixel(j, i, Color.FromArgb(255, cor, cor, cor));
+                }
+            }
+            return imagem;
+        }
     }
 }
