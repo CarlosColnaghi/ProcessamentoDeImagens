@@ -55,13 +55,13 @@ namespace Processamento_de_Imagens
             {
                 for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    if (this.imagem.GetPixel(i, j).R <= limiar)
+                    if (this.imagem.GetPixel(j, i).R <= limiar)
                     {                
-                        imagem.SetPixel(i, j, Color.Black);
+                        imagem.SetPixel(j, i, Color.Black);
                     }
                     else
                     {
-                        imagem.SetPixel(i, j, Color.White);
+                        imagem.SetPixel(j, i, Color.White);
                     }
                 }
             }
@@ -222,21 +222,21 @@ namespace Processamento_de_Imagens
         public Bitmap getCanal(int canal = 0)
         {
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 0; i < this.imagem.Width; i++)
+            for (int i = 0; i < this.imagem.Height; i++)
             {
-                for (int j = 0; j < this.imagem.Height; j++)
+                for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    Color pixel = this.imagem.GetPixel(i, j);
+                    Color pixel = this.imagem.GetPixel(j, i);
                     switch (canal)
                     {
                         case 0:
-                            imagem.SetPixel(i, j, Color.FromArgb(255, pixel.R, 0, 0));
+                            imagem.SetPixel(j, i, Color.FromArgb(255, pixel.R, 0, 0));
                             break;
                         case 1:
-                            imagem.SetPixel(i, j, Color.FromArgb(255, 0, pixel.G, 0));
+                            imagem.SetPixel(j, i, Color.FromArgb(255, 0, pixel.G, 0));
                             break;
                         case 2:
-                            imagem.SetPixel(i, j, Color.FromArgb(255, 0, 0, pixel.B));
+                            imagem.SetPixel(j, i, Color.FromArgb(255, 0, 0, pixel.B));
                             break;
                     }
                 }
@@ -247,13 +247,13 @@ namespace Processamento_de_Imagens
         public Bitmap getMetodoMaximoCanal()
         {
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 0; i < this.imagem.Width; i++)
+            for (int i = 0; i < this.imagem.Height; i++)
             {
-                for (int j = 0; j < this.imagem.Height; j++)
+                for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    Color pixel = this.imagem.GetPixel(i, j);
+                    Color pixel = this.imagem.GetPixel(j, i);
                     int[] cores = { pixel.R, pixel.G, pixel.B };
-                    imagem.SetPixel(i, j, Color.FromArgb(255, cores.Max(), cores.Max(), cores.Max()));
+                    imagem.SetPixel(j, i, Color.FromArgb(255, cores.Max(), cores.Max(), cores.Max()));
                 }
             }
             return imagem;
@@ -262,13 +262,13 @@ namespace Processamento_de_Imagens
         public Bitmap getMetodoConversaoClassico()
         {
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 0; i < this.imagem.Width; i++)
+            for (int i = 0; i < this.imagem.Height; i++)
             {
-                for (int j = 0; j < this.imagem.Height; j++)
+                for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    Color pixel = this.imagem.GetPixel(i, j);
+                    Color pixel = this.imagem.GetPixel(j, i);
                     int cor = (int)(0.29 * pixel.R + 0.59 * pixel.G + 0.11 * pixel.B);
-                    imagem.SetPixel(i, j, Color.FromArgb(255, cor, cor, cor));
+                    imagem.SetPixel(j, i, Color.FromArgb(255, cor, cor, cor));
                 }
             }
             return imagem;
@@ -277,13 +277,13 @@ namespace Processamento_de_Imagens
         public Bitmap getMetodoMediaCanal()
         {
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 0; i < this.imagem.Width; i++)
+            for (int i = 0; i < this.imagem.Height; i++)
             {
-                for (int j = 0; j < this.imagem.Height; j++)
+                for (int j = 0; j < this.imagem.Width; j++)
                 {
-                    Color pixel = this.imagem.GetPixel(i, j);
+                    Color pixel = this.imagem.GetPixel(j, i);
                     int cor = (int)((pixel.R + pixel.G + pixel.B) / 3);
-                    imagem.SetPixel(i, j, Color.FromArgb(255, cor, cor, cor));
+                    imagem.SetPixel(j, i, Color.FromArgb(255, cor, cor, cor));
                 }
             }
             return imagem;
