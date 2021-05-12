@@ -161,13 +161,9 @@ namespace Processamento_de_Imagens
         }
 
         //TODO: Refatorar a função getFiltroRoberts();
-        public Bitmap getFiltroRoberts()
+        public Bitmap getFiltroRoberts(int tipoMascara = 0)
         {
-            int[,] mascara = new int[,]
-            {
-                {1, 0},
-                {0, -1}
-            };
+            int[,] mascara = Mascara.getRoberts(tipoMascara);
             Bitmap imagem = new Bitmap(this.imagem);
             for(int i = 0; i <= this.imagem.Height-2; i++)
             {

@@ -95,7 +95,7 @@ namespace Processamento_de_Imagens
                         imagemProcessada = imagemOriginal.getFiltoSobel(mascara);
                         break;
                     case Operacoes.filtroRoberts:
-                        imagemProcessada = imagemOriginal.getFiltroRoberts();
+                        imagemProcessada = imagemOriginal.getFiltroRoberts(mascara);
                         break;
                     case Operacoes.equalizacao:
                         imagemProcessada = imagemOriginal.getEqualizacao();
@@ -192,6 +192,8 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.filtroRoberts:
                     tabControl1.SelectedIndex = 1;
+                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getRoberts(0));
+                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getRoberts(1));
                     break;
                 case Operacoes.canal:
                     tabControl1.SelectedIndex = 2;

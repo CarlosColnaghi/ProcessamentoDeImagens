@@ -84,6 +84,30 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
+        public static int[,] getRoberts(int tipo = 0)
+        {
+            int[,] mascara = null;
+            switch (tipo)
+            {
+                case 0:
+                    mascara = new int[,]
+                    {
+                        {1, 0},
+                        {0, -1}
+                    };
+                    break;
+                case 1:
+                    mascara = new int[,]
+                   {
+                        {0, 1},
+                        {-1, 0}
+                   };
+                    break;
+            }
+
+            return mascara;
+        }
+
         public static void preencherTabela(DataGridView dataGridView, int[,] mascara)
         {
             dataGridView.ClearSelection();
