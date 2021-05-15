@@ -31,6 +31,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.metodoConversaoClassico);
             lstOperacoes.Items.Add(Operacoes.metodoMediaCanal);
             lstOperacoes.Items.Add(Operacoes.quantizacao);
+            lstOperacoes.Items.Add(Operacoes.filtroKirsch);
             lstOperacoes.SelectedIndex = 0;
 
             barLimiar.Value = barLimiar.Maximum / 2;
@@ -119,6 +120,9 @@ namespace Processamento_de_Imagens
                     case Operacoes.filtroLaplaceMaisOriginal:
                         imagemProcessada = imagemOriginal.getFiltroLaplaceMaisOriginal(mascara);
                         break;
+                    case Operacoes.filtroKirsch:
+                        imagemProcessada = imagemOriginal.getFiltroKirsch(mascara);
+                        break;
                 }
                 picProcessada.Image = imagemProcessada;
                 Interface.preencherDimensoes(picProcessada, txtAlturaProcessada, txtLarguraProcessada);
@@ -187,6 +191,11 @@ namespace Processamento_de_Imagens
                     tabControl1.SelectedIndex = 1;
                     Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getLaplaceMaisOriginal(0));
                     Interface.preencherMascara(dgvSegundaMascara, Mascara.getLaplaceMaisOriginal(1));
+                    break;
+                case Operacoes.filtroKirsch:
+                    tabControl1.SelectedIndex = 1;
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getKirsch(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getKirsch(1));
                     break;
                 default:
                     tabControl1.SelectedIndex = -1;

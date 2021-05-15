@@ -134,6 +134,32 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
+        public static int[,] getKirsch(int tipo = 0)
+        {
+            int[,] mascara = null;
+            switch (tipo)
+            {
+                case 0:
+                    mascara = new int[,]
+                    {
+                        {5, 5, 5},
+                        {-3, 0, -3},
+                        {-3, -3, -3},
+                    };
+                    break;
+                case 1:
+                    mascara = new int[,]
+                   {
+                        {-3, -3, -3},
+                        {-3, 0, -3},
+                        {5, 5, 5},
+                   };
+                    break;
+            }
+
+            return mascara;
+        }
+
         public static int getOrdem(int[,] mascara)
         {
             return mascara.GetLength(0);

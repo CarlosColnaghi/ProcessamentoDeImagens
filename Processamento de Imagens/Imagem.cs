@@ -286,5 +286,10 @@ namespace Processamento_de_Imagens
         {
             return processar(Mascara.getLaplaceMaisOriginal(mascara));
         }
+
+        public Bitmap getFiltroKirsch(int mascara = 0)
+        {
+            return processar(Mascara.getKirsch(mascara));
+        }
     }
 }

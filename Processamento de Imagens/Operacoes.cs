@@ -19,7 +19,7 @@ namespace Processamento_de_Imagens
             metodoConversaoClassico = "Método Conversão Clássico",
             metodoMediaCanal = "Método Média Canal",
             quantizacao = "Quantização",
-            filtroLaplaceMaisOriginal = "Filtro de Laplace + Original";
-
+            filtroLaplaceMaisOriginal = "Filtro de Laplace + Original",
+            filtroKirsch = "Filtro de Kirsch";
     }
 }
