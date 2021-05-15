@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chtHistogramaOriginal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.l = new System.Windows.Forms.Label();
@@ -53,8 +53,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -105,14 +103,14 @@
             // 
             // chtHistogramaOriginal
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chtHistogramaOriginal.ChartAreas.Add(chartArea7);
+            chartArea5.Name = "ChartArea1";
+            this.chtHistogramaOriginal.ChartAreas.Add(chartArea5);
             this.chtHistogramaOriginal.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaOriginal.Name = "chtHistogramaOriginal";
             this.chtHistogramaOriginal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series7.ChartArea = "ChartArea1";
-            series7.Name = "Series1";
-            this.chtHistogramaOriginal.Series.Add(series7);
+            series5.ChartArea = "ChartArea1";
+            series5.Name = "Series1";
+            this.chtHistogramaOriginal.Series.Add(series5);
             this.chtHistogramaOriginal.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaOriginal.TabIndex = 11;
             this.chtHistogramaOriginal.Text = "chart1";
@@ -183,7 +181,7 @@
             // lstOperacoes
             // 
             this.lstOperacoes.FormattingEnabled = true;
-            this.lstOperacoes.Location = new System.Drawing.Point(308, 39);
+            this.lstOperacoes.Location = new System.Drawing.Point(307, 39);
             this.lstOperacoes.Name = "lstOperacoes";
             this.lstOperacoes.Size = new System.Drawing.Size(265, 264);
             this.lstOperacoes.TabIndex = 2;
@@ -195,7 +193,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(308, 497);
+            this.button1.Location = new System.Drawing.Point(307, 497);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(264, 33);
             this.button1.TabIndex = 3;
@@ -221,14 +219,14 @@
             // 
             // chtHistogramaProcessada
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chtHistogramaProcessada.ChartAreas.Add(chartArea8);
+            chartArea6.Name = "ChartArea1";
+            this.chtHistogramaProcessada.ChartAreas.Add(chartArea6);
             this.chtHistogramaProcessada.Location = new System.Drawing.Point(16, 458);
             this.chtHistogramaProcessada.Name = "chtHistogramaProcessada";
             this.chtHistogramaProcessada.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series8.ChartArea = "ChartArea1";
-            series8.Name = "Series1";
-            this.chtHistogramaProcessada.Series.Add(series8);
+            series6.ChartArea = "ChartArea1";
+            series6.Name = "Series1";
+            this.chtHistogramaProcessada.Series.Add(series6);
             this.chtHistogramaProcessada.Size = new System.Drawing.Size(265, 133);
             this.chtHistogramaProcessada.TabIndex = 12;
             this.chtHistogramaProcessada.Text = "chart1";
@@ -311,7 +309,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(308, 20);
+            this.label2.Location = new System.Drawing.Point(307, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(264, 16);
@@ -331,27 +329,11 @@
             this.label3.Text = "Imagem B";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 642);
-            this.splitter1.TabIndex = 6;
-            this.splitter1.TabStop = false;
-            // 
-            // splitter2
-            // 
-            this.splitter2.Location = new System.Drawing.Point(3, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 642);
-            this.splitter2.TabIndex = 8;
-            this.splitter2.TabStop = false;
-            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(309, 306);
+            this.label5.Location = new System.Drawing.Point(308, 306);
             this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(264, 16);
@@ -365,7 +347,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(308, 325);
+            this.tabControl1.Location = new System.Drawing.Point(307, 325);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(263, 166);
@@ -563,8 +545,6 @@
             this.ClientSize = new System.Drawing.Size(878, 642);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.splitter2);
-            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -573,9 +553,10 @@
             this.Controls.Add(this.lstOperacoes);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Processamento de Imagens";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -616,8 +597,6 @@
         private System.Windows.Forms.TextBox txtLarguraOriginal;
         private System.Windows.Forms.TextBox txtAlturaOriginal;
         private System.Windows.Forms.ListBox lstHistogramaOriginal;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.Label l;
         private System.Windows.Forms.ListBox O;
         private System.Windows.Forms.ListBox lstHistogramaProcessada;

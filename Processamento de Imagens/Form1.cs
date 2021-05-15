@@ -44,22 +44,10 @@ namespace Processamento_de_Imagens
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 picOriginal.Image = new Bitmap(openFileDialog.FileName);
-                txtAlturaOriginal.Text = picOriginal.Image.Height.ToString();
-                txtLarguraOriginal.Text = picOriginal.Image.Width.ToString();
+                Interface.preencherDimensoes(picOriginal, txtAlturaOriginal, txtLarguraOriginal);
                 Imagem imagem = new Imagem(new Bitmap(picOriginal.Image));
-                lstHistogramaOriginal.Items.Clear();
-                foreach (int valor in imagem.getHistograma())
-                {
-                    lstHistogramaOriginal.Items.Add($"{lstHistogramaOriginal.Items.Count} = {valor}");
-                }
-                int[] histograma = imagem.getHistograma();
-                chtHistogramaOriginal.Series[0].Points.Clear();
-                chtHistogramaOriginal.ChartAreas[0].AxisX.Maximum = histograma.Length-1;
-                chtHistogramaOriginal.ChartAreas[0].AxisX.Minimum = 0;
-                for (int i = 0; i < histograma.Length; i++)
-                {
-                    chtHistogramaOriginal.Series[0].Points.AddXY(i, histograma[i]);
-                }
+                Interface.preencherHistograma(lstHistogramaOriginal, imagem.getHistograma());
+                Interface.preencherHistograma(chtHistogramaOriginal, imagem.getHistograma());
             }
         }
 
@@ -133,21 +121,9 @@ namespace Processamento_de_Imagens
                         break;
                 }
                 picProcessada.Image = imagemProcessada;
-                txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
-                txtLarguraProcessada.Text = picProcessada.Image.Width.ToString();
-                lstHistogramaProcessada.Items.Clear();
-                foreach (int valor in new Imagem(imagemProcessada).getHistograma(canal))
-                {
-                    lstHistogramaProcessada.Items.Add($"{lstHistogramaProcessada.Items.Count} = {valor}");
-                }
-                int[] histograma = new Imagem(imagemProcessada).getHistograma(canal);
-                chtHistogramaProcessada.Series[0].Points.Clear();
-                chtHistogramaProcessada.ChartAreas[0].AxisX.Maximum = histograma.Length-1;
-                chtHistogramaProcessada.ChartAreas[0].AxisX.Minimum = 0;
-                for (int i = 0; i < histograma.Length; i++)
-                {
-                    chtHistogramaProcessada.Series[0].Points.AddXY(i, histograma[i]);
-                }
+                Interface.preencherDimensoes(picProcessada, txtAlturaProcessada, txtLarguraProcessada);
+                Interface.preencherHistograma(lstHistogramaProcessada, new Imagem(imagemProcessada).getHistograma(canal));
+                Interface.preencherHistograma(chtHistogramaProcessada, new Imagem(imagemProcessada).getHistograma(canal));
             }
             
         }
@@ -181,23 +157,23 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.filtroLaplace:
                     tabControl1.SelectedIndex = 1;
-                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getLaplace(0));
-                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getLaplace(1));
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getLaplace(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getLaplace(1));
                     break;
                 case Operacoes.filtroPrewitt:
                     tabControl1.SelectedIndex = 1;
-                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getPrewitt(0));
-                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getPrewitt(1));
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getPrewitt(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getPrewitt(1));
                     break;
                 case Operacoes.filtroSobel:
                     tabControl1.SelectedIndex = 1;
-                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getSobel(0));
-                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getSobel(1));
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getSobel(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getSobel(1));
                     break;
                 case Operacoes.filtroRoberts:
                     tabControl1.SelectedIndex = 1;
-                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getRoberts(0));
-                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getRoberts(1));
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getRoberts(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getRoberts(1));
                     break;
                 case Operacoes.canal:
                     tabControl1.SelectedIndex = 2;
@@ -209,8 +185,8 @@ namespace Processamento_de_Imagens
                     break;
                 case Operacoes.filtroLaplaceMaisOriginal:
                     tabControl1.SelectedIndex = 1;
-                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getLaplaceMaisOriginal(0));
-                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getLaplaceMaisOriginal(1));
+                    Interface.preencherMascara(dgvPrimeiraMascara, Mascara.getLaplaceMaisOriginal(0));
+                    Interface.preencherMascara(dgvSegundaMascara, Mascara.getLaplaceMaisOriginal(1));
                     break;
                 default:
                     tabControl1.SelectedIndex = -1;

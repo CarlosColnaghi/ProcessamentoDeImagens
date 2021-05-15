@@ -54,6 +54,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Imagem.cs" />
+    <Compile Include="Interface.cs" />
     <Compile Include="Mascara.cs" />
     <Compile Include="Operacoes.cs" />
     <Compile Include="Program.cs" />

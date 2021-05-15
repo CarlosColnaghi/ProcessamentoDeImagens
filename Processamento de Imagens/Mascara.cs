@@ -138,21 +138,5 @@ namespace Processamento_de_Imagens
         {
             return mascara.GetLength(0);
         }
-
-        public static void preencherTabela(DataGridView dataGridView, int[,] mascara)
-        {
-            dataGridView.ClearSelection();
-            dataGridView.RowCount = mascara.GetLength(0);
-            dataGridView.ColumnCount = mascara.GetLength(1);
-            for (int i = 0; i < mascara.GetLength(0); i++)
-            {
-                for (int j = 0; j < mascara.GetLength(1); j++)
-                {
-                    dataGridView.Rows[i].Cells[j].Value = mascara[i, j];
-                }
-            }
-            dataGridView.ClearSelection();
-        }
-
     }
 }
