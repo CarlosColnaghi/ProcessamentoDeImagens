@@ -21,6 +21,7 @@ namespace Processamento_de_Imagens
             lstOperacoes.Items.Add(Operacoes.binarizacao);
             lstOperacoes.Items.Add(Operacoes.filtroMedia);
             lstOperacoes.Items.Add(Operacoes.filtroLaplace);
+            lstOperacoes.Items.Add(Operacoes.filtroLaplaceMaisOriginal);
             lstOperacoes.Items.Add(Operacoes.filtroPrewitt);
             lstOperacoes.Items.Add(Operacoes.filtroSobel);
             lstOperacoes.Items.Add(Operacoes.filtroRoberts);
@@ -127,6 +128,9 @@ namespace Processamento_de_Imagens
                     case Operacoes.quantizacao:
                         imagemProcessada = imagemOriginal.getQuantizacao(Convert.ToInt32(cmbNumeroCanais.Text));
                         break;
+                    case Operacoes.filtroLaplaceMaisOriginal:
+                        imagemProcessada = imagemOriginal.getFiltroLaplaceMaisOriginal(mascara);
+                        break;
                 }
                 picProcessada.Image = imagemProcessada;
                 txtAlturaProcessada.Text = picProcessada.Image.Height.ToString();
@@ -202,6 +206,11 @@ namespace Processamento_de_Imagens
                     tabControl1.SelectedIndex = 3;
                     cmbNumeroCanais.SelectedItem = 0;
                     cmbNumeroCanais.SelectedIndex = 0;
+                    break;
+                case Operacoes.filtroLaplaceMaisOriginal:
+                    tabControl1.SelectedIndex = 1;
+                    Mascara.preencherTabela(dgvPrimeiraMascara, Mascara.getLaplaceMaisOriginal(0));
+                    Mascara.preencherTabela(dgvSegundaMascara, Mascara.getLaplaceMaisOriginal(1));
                     break;
                 default:
                     tabControl1.SelectedIndex = -1;

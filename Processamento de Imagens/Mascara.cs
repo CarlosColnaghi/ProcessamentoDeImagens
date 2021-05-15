@@ -108,6 +108,32 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
+        public static int[,] getLaplaceMaisOriginal(int tipo = 0)
+        {
+            int[,] mascara = null;
+            switch (tipo)
+            {
+                case 0:
+                    mascara = new int[,]
+                    {
+                        {0, -1, 0},
+                        {-1, 5, -1},
+                        {0, -1, 0},
+                    };
+                    break;
+                case 1:
+                    mascara = new int[,]
+                   {
+                        {-1, -1, -1},
+                        {-1, 9, -1},
+                        {-1, -1, -1},
+                   };
+                    break;
+            }
+
+            return mascara;
+        }
+
         public static int getOrdem(int[,] mascara)
         {
             return mascara.GetLength(0);

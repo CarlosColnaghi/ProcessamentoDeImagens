@@ -281,5 +281,10 @@ namespace Processamento_de_Imagens
             }
             return imagem;
         }
+    
+        public Bitmap getFiltroLaplaceMaisOriginal(int mascara = 0)
+        {
+            return processar(Mascara.getLaplaceMaisOriginal(mascara));
+        }
     }
 }
