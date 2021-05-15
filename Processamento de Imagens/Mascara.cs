@@ -108,6 +108,11 @@ namespace Processamento_de_Imagens
             return mascara;
         }
 
+        public static int getOrdem(int[,] mascara)
+        {
+            return mascara.GetLength(0);
+        }
+
         public static void preencherTabela(DataGridView dataGridView, int[,] mascara)
         {
             dataGridView.ClearSelection();

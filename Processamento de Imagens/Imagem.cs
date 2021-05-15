@@ -119,23 +119,24 @@ namespace Processamento_de_Imagens
 
         private Bitmap processar(int[,] mascara)
         {
+            int ordem = Mascara.getOrdem(mascara), inicio = ordem - 2;
             Bitmap imagem = new Bitmap(this.imagem);
-            for (int i = 1; i <= this.imagem.Height - 2; i++)
+            for (int i = inicio; i <= this.imagem.Height - 2; i++)
             {
-                for (int j = 1; j <= this.imagem.Width - 2; j++)
+                for (int j = inicio; j <= this.imagem.Width - 2; j++)
                 {
                     int soma = 0;
-                    for (int k = i - 1, m = 0; k <= i + 1; k++, m++)
+                    for (int k = i - inicio, m = 0; k <= i + 1; k++, m++)
                     {
-                        for (int l = j - 1, n = 0; l <= j + 1; l++, n++)
+                        for (int l = j - inicio, n = 0; l <= j + 1; l++, n++)
                         {
                             soma += this.imagem.GetPixel(l, k).R * mascara[m, n];
                         }
                     }
-                    if(soma < 0) 
+                    if(soma < 0)
                     {
                         soma = 0;
-                    }else if(soma > 255)
+                    }else if(soma > 255) 
                     {
                         soma = 255;
                     }
@@ -160,31 +161,9 @@ namespace Processamento_de_Imagens
             return processar(Mascara.getSobel(mascara));
         }
 
-        //TODO: Refatorar a função getFiltroRoberts();
-        public Bitmap getFiltroRoberts(int tipoMascara = 0)
+        public Bitmap getFiltroRoberts(int mascara = 0)
         {
-            int[,] mascara = Mascara.getRoberts(tipoMascara);
-            Bitmap imagem = new Bitmap(this.imagem);
-            for(int i = 0; i <= this.imagem.Height-2; i++)
-            {
-                for(int j = 0; j <= this.imagem.Width-2; j++)
-                {
-                    int soma = 0;
-                    for(int k = i, m = 0; k <= i+1; k++, m++)
-                    {
-                        for(int l = j, n = 0; l <= j+1; l++, n++)
-                        {
-                            soma += this.imagem.GetPixel(l, k).R * mascara[m, n];
-                        }
-                    }
-                    if (soma < 0)
-                    {
-                        soma = soma * -1;
-                    }
-                    imagem.SetPixel(j, i, Color.FromArgb(255, soma, soma, soma));
-                }
-            }
-            return imagem;
+            return processar(Mascara.getRoberts(mascara));
         }
 
         public Bitmap getEqualizacao()
